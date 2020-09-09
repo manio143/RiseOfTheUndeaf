@@ -20,11 +20,12 @@ namespace RiseOfTheUndeaf.Input
         /// Bindigs of <see cref="GameButton"/>s to keyboard and gamepad.
         /// </summary>
         public VirtualButtonConfig ButtonBindings { get; set; }
+        // TODO: figure out how to serialize bindings and present them to the user
 
         /// <summary>
         /// A set of default bindings for testing.
         /// </summary>
-        public static VirtualButtonConfig DefaultButtonBindings()
+        public VirtualButtonConfig DefaultButtonBindings()
         {
             return new VirtualButtonConfig
             {
@@ -33,26 +34,32 @@ namespace RiseOfTheUndeaf.Input
                     new VirtualButtonTwoWay(VirtualButton.Keyboard.A, VirtualButton.Keyboard.D)),
                 new VirtualButtonBinding(GameButton.MovementHorizontal,
                     new VirtualButtonTwoWay(VirtualButton.Keyboard.Left, VirtualButton.Keyboard.Right)),
-                new VirtualButtonBinding(GameButton.MovementHorizontal, VirtualButton.GamePad.LeftThumbAxisX),
+                new VirtualButtonBinding(GameButton.MovementHorizontal,
+                    new VirtualJoystick(VirtualButton.GamePad.LeftThumbAxisX, JoystickDeadZone)),
                 
                 // Vertical movement Y axis
                 new VirtualButtonBinding(GameButton.MovementVertical,
                     new VirtualButtonTwoWay(VirtualButton.Keyboard.S, VirtualButton.Keyboard.W)),
                 new VirtualButtonBinding(GameButton.MovementVertical,
                     new VirtualButtonTwoWay(VirtualButton.Keyboard.Down, VirtualButton.Keyboard.Up)),
-                new VirtualButtonBinding(GameButton.MovementVertical, VirtualButton.GamePad.LeftThumbAxisY),
+                new VirtualButtonBinding(GameButton.MovementVertical,
+                    new VirtualJoystick(VirtualButton.GamePad.LeftThumbAxisY, JoystickDeadZone)),
 
                 // Jumping
                 new VirtualButtonBinding(GameButton.Jump, VirtualButton.Keyboard.Space),
                 new VirtualButtonBinding(GameButton.Jump, VirtualButton.GamePad.A),
 
                 // Horizontal camera X axis
-                new VirtualButtonBinding(GameButton.CameraHorizontal, VirtualButton.Mouse.DeltaX),
-                new VirtualButtonBinding(GameButton.CameraHorizontal, VirtualButton.GamePad.RightThumbAxisX),
+                new VirtualButtonBinding(GameButton.CameraHorizontal,
+                    new VirtualMouseAxis(VirtualButton.Mouse.DeltaX, mouseSensitivity: MouseSensitivity)),
+                new VirtualButtonBinding(GameButton.CameraHorizontal,
+                    new VirtualJoystick(VirtualButton.GamePad.RightThumbAxisX, JoystickDeadZone)),
 
                 // Vertical camera Y axis
-                new VirtualButtonBinding(GameButton.CameraVertical, VirtualButton.Mouse.DeltaY),
-                new VirtualButtonBinding(GameButton.CameraHorizontal, VirtualButton.GamePad.RightThumbAxisY),
+                new VirtualButtonBinding(GameButton.CameraVertical,
+                    new VirtualMouseAxis(VirtualButton.Mouse.DeltaY, negative: true, mouseSensitivity: MouseSensitivity)),
+                new VirtualButtonBinding(GameButton.CameraVertical,
+                    new VirtualJoystick(VirtualButton.GamePad.RightThumbAxisY, JoystickDeadZone)),
             };
         }
     }

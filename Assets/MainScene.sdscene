@@ -2915,7 +2915,7 @@ Hierarchy:
                     809bf66aef692646891c293be4ca17b2: !RiseOfTheUndeaf.Player.PlayerInput,RiseOfTheUndeaf.Game
                         Id: 6af69b80-69ef-4626-891c-293be4ca17b2
                         Camera: ref!! 65d1b71f-4862-4efc-b7c1-3c9d933979c7
-                        InputSettings: { JoystickDeadZone: 0.15, MouseSensitivity: 100 }
+                        InputSettings: { JoystickDeadZone: 0.25, MouseSensitivity: 80 }
         -   Folder: Platform/Grid
             Entity:
                 Id: 605ce261-0f03-4563-b2d4-4ed4a7d4cd89
