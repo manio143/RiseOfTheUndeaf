@@ -1,0 +1,19 @@
+!Animation
+Id: 8b2ddf65-b7d2-4f36-a52e-adbc88f595c2
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../Resources/Animation/Jump_Loop.fbx
+ClipDuration:
+    Enabled: false
+    StartAnimationTime: 0:00:00:00.0000000
+    EndAnimationTime: 0:00:30:00.0000000
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+RepeatMode: LoopInfinite
+Type: !StandardAnimationAssetType {}
+Skeleton: 86bf9b5e-cc40-45ee-a9f7-b314b4a6b65c:Models/mannequinModel Skeleton
+RootMotion: false
+PreviewModel: b163aa75-5e15-485a-bb77-da42e1e03420:Models/mannequinModel
+AnimationTimeMinimum: 0:00:00:00.0000000
+AnimationTimeMaximum: 0:00:00:00.9830000
+~SourceHashes:
+    d7064665b69ee02ddb199ae62cc3dc7b~../../Resources/Animation/Jump_Loop.fbx: b578f2ccc51e7deedf81789e5911798d

@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
+    <ApplicationIcon>Resources\Icon.ico</ApplicationIcon>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RiseOfTheUndeaf</RootNamespace>
+
+    <OutputPath>..\Bin\Linux\$(Configuration)\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+
+    <!-- Force msbuild to check to rebuild this assembly instead of letting VS IDE guess -->
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RiseOfTheUndeaf.Game\RiseOfTheUndeaf.Game.csproj" />
+    <!-- Needed for custom runtime.json -->
+    <PackageReference Include="Stride" Version="4.0.0.1-beta04" PrivateAssets="contentfiles;analyzers" />
+  </ItemGroup>
+
+</Project>

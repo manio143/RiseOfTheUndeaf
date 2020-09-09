@@ -1,0 +1,13 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 16
+VisualStudioVersion = 16.0.0.0
+MinimumVisualStudioVersion = 16.0.0.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiseOfTheUndeaf.Windows", "RiseOfTheUndeaf.Windows\RiseOfTheUndeaf.Windows.csproj", "{72BE559A-3DF6-458B-9D17-9018B2CB21AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiseOfTheUndeaf.Game", "RiseOfTheUndeaf.Game\RiseOfTheUndeaf.Game.csproj", "{A07204EF-9D81-4A69-AB89-D59A59E5571F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiseOfTheUndeaf.Linux", "RiseOfTheUndeaf.Linux\RiseOfTheUndeaf.Linux.csproj", "{876B83F7-9338-46BD-857D-82324295A97A}"
+EndProject
+Global
+EndGlobal
