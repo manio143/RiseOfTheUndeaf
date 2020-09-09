@@ -2911,26 +2911,11 @@ Hierarchy:
                     f722a19496166946a5d26eaf23d2ae03: !RiseOfTheUndeaf.Player.PlayerController,RiseOfTheUndeaf.Game
                         Id: 94a122f7-1696-4669-a5d2-6eaf23d2ae03
                         MaxRunSpeed: 8.5
-                        JumpReactionThreshold: 0.15
+                        JumpReactionThreshold: 0.3
                     809bf66aef692646891c293be4ca17b2: !RiseOfTheUndeaf.Player.PlayerInput,RiseOfTheUndeaf.Game
                         Id: 6af69b80-69ef-4626-891c-293be4ca17b2
-                        MouseSensitivity: 100.0
-                        DeadZone: 0.25
                         Camera: ref!! 65d1b71f-4862-4efc-b7c1-3c9d933979c7
-                        KeysLeft:
-                            188e93f66916cf656ff39c2c364a16ce: A
-                            209be0885cbd15e2824ee34abbf1e993: Left
-                        KeysRight:
-                            b19f9a0fb9749d53d2cf6e353c2dde59: D
-                            da3e9e9055cb7a4648d733f34b8a6afb: Right
-                        KeysUp:
-                            6f9526aa5d381de305cc00fa39927ff8: W
-                            0bf61a77531d87ca4bc6697a5d3a9a73: Up
-                        KeysDown:
-                            d074974d39648acf3dd67ba90125999c: S
-                            47b7f2884469c9d74a4712034dba6f5a: Down
-                        KeysJump:
-                            23fe5ceb28bd9649fa594f451bbef24b: Space
+                        InputSettings: { JoystickDeadZone: 0.15, MouseSensitivity: 100 }
         -   Folder: Platform/Grid
             Entity:
                 Id: 605ce261-0f03-4563-b2d4-4ed4a7d4cd89
