@@ -1,6 +1,6 @@
 ﻿using Stride.Input;
 
-namespace RiseOfTheUndeaf.Input
+namespace RiseOfTheUndeaf.Input.Buttons
 {
     /// <summary>
     /// Applies sensitivity correction and negation to <see cref="VirtualButton.Mouse.DeltaX"/> or <see cref="VirtualButton.Mouse.DeltaY"/>.

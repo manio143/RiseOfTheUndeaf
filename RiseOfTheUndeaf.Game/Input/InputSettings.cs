@@ -1,5 +1,7 @@
-﻿using Stride.Core;
+﻿using RiseOfTheUndeaf.Input.Buttons;
+using Stride.Core;
 using Stride.Input;
+using System.Collections.Generic;
 
 namespace RiseOfTheUndeaf.Input
 {
@@ -17,66 +19,35 @@ namespace RiseOfTheUndeaf.Input
         public float MouseSensitivity { get; set; } = 100.0f;
 
         /// <summary>
-        /// Bindigs of <see cref="GameButton"/>s to keyboard and gamepad.
+        /// Invert mouse movement on the X axis.
         /// </summary>
-        public VirtualButtonConfig ButtonBindings { get; set; }
-        // TODO: figure out how to serialize bindings and present them to the user
+        public bool InvertMouseX { get; set; }
 
         /// <summary>
-        /// A set of default bindings for testing.
+        /// Invert mouse movement on the Y axis.
         /// </summary>
-        public VirtualButtonConfig DefaultButtonBindings()
+        public bool InvertMouseY { get; set; }
+
+        /// <summary>
+        /// Mapping of <see cref="GameButton"/> to physical input methods.
+        /// </summary>
+        public Dictionary<GameButton, List<IPhysicalButton>> ButtonBindings { get; set; }
+
+        /// <summary>
+        /// Creates an instance of <see cref="VirtualButtonConfig"/> from the <see cref="ButtonBindings"/>.
+        /// </summary>
+        public VirtualButtonConfig CreateVirtualButtonConfig()
         {
-            return new VirtualButtonConfig
+            var config = new VirtualButtonConfig();
+
+            foreach(var kvp in ButtonBindings)
             {
-                // Horizontal movement X axis
-                new VirtualButtonBinding(GameButton.MovementHorizontal,
-                    new VirtualButtonTwoWay(VirtualButton.Keyboard.A, VirtualButton.Keyboard.D)),
-                new VirtualButtonBinding(GameButton.MovementHorizontal,
-                    new VirtualButtonTwoWay(VirtualButton.Keyboard.Left, VirtualButton.Keyboard.Right)),
-                new VirtualButtonBinding(GameButton.MovementHorizontal,
-                    new VirtualJoystick(VirtualButton.GamePad.LeftThumbAxisX, JoystickDeadZone)),
-                
-                // Vertical movement Y axis
-                new VirtualButtonBinding(GameButton.MovementVertical,
-                    new VirtualButtonTwoWay(VirtualButton.Keyboard.S, VirtualButton.Keyboard.W)),
-                new VirtualButtonBinding(GameButton.MovementVertical,
-                    new VirtualButtonTwoWay(VirtualButton.Keyboard.Down, VirtualButton.Keyboard.Up)),
-                new VirtualButtonBinding(GameButton.MovementVertical,
-                    new VirtualJoystick(VirtualButton.GamePad.LeftThumbAxisY, JoystickDeadZone)),
+                var virtualButtonName = kvp.Key;
+                foreach (var physicalButton in kvp.Value)
+                    config.Add(new VirtualButtonBinding(virtualButtonName, physicalButton.ToVirtual(this)));
+            }
 
-                // Jumping
-                new VirtualButtonBinding(GameButton.Jump, VirtualButton.Keyboard.Space),
-                new VirtualButtonBinding(GameButton.Jump, VirtualButton.GamePad.A),
-
-                // Horizontal camera X axis
-                new VirtualButtonBinding(GameButton.CameraHorizontal,
-                    new VirtualMouseAxis(VirtualButton.Mouse.DeltaX, mouseSensitivity: MouseSensitivity)),
-                new VirtualButtonBinding(GameButton.CameraHorizontal,
-                    new VirtualJoystick(VirtualButton.GamePad.RightThumbAxisX, JoystickDeadZone)),
-
-                // Vertical camera Y axis
-                new VirtualButtonBinding(GameButton.CameraVertical,
-                    new VirtualMouseAxis(VirtualButton.Mouse.DeltaY, negative: true, mouseSensitivity: MouseSensitivity)),
-                new VirtualButtonBinding(GameButton.CameraVertical,
-                    new VirtualJoystick(VirtualButton.GamePad.RightThumbAxisY, JoystickDeadZone)),
-            };
+            return config;
         }
-    }
-
-    /// <summary>
-    /// Virtual button definitions for the game.
-    /// </summary>
-    public enum GameButton
-    {
-        Undefined = 0,
-
-        MovementHorizontal,
-        MovementVertical,
-
-        Jump,
-
-        CameraHorizontal,
-        CameraVertical,
     }
 }

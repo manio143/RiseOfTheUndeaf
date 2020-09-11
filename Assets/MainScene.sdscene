@@ -2915,7 +2915,43 @@ Hierarchy:
                     809bf66aef692646891c293be4ca17b2: !RiseOfTheUndeaf.Player.PlayerInput,RiseOfTheUndeaf.Game
                         Id: 6af69b80-69ef-4626-891c-293be4ca17b2
                         Camera: ref!! 65d1b71f-4862-4efc-b7c1-3c9d933979c7
-                        InputSettings: { JoystickDeadZone: 0.25, MouseSensitivity: 80 }
+                        InputSettings:
+                            JoystickDeadZone: 0.25
+                            MouseSensitivity: 80.0
+                            InvertMouseX: false
+                            InvertMouseY: false
+                            ButtonBindings:
+                                23e5d3f889ba38a7016282a52c54c030~MovementHorizontal:
+                                    e3782cf756e2a990ed8b582539804157: !RiseOfTheUndeaf.Input.Buttons.AxisFromButtons,RiseOfTheUndeaf.Game
+                                        NegativeButton: !RiseOfTheUndeaf.Input.Buttons.KeyboardButton,RiseOfTheUndeaf.Game
+                                            Button: A
+                                        PositiveButton: !RiseOfTheUndeaf.Input.Buttons.KeyboardButton,RiseOfTheUndeaf.Game
+                                            Button: D
+                                    d7f69b480bfecac2aa4746009b8e2238: !RiseOfTheUndeaf.Input.Buttons.GamePadAxis,RiseOfTheUndeaf.Game
+                                        Axis: LeftX
+                                ec8df745ea344f350bf9ecdf1c238fb4~MovementVertical:
+                                    64f485434ac0bb46b93dc2317af612a1: !RiseOfTheUndeaf.Input.Buttons.AxisFromButtons,RiseOfTheUndeaf.Game
+                                        NegativeButton: !RiseOfTheUndeaf.Input.Buttons.KeyboardButton,RiseOfTheUndeaf.Game
+                                            Button: S
+                                        PositiveButton: !RiseOfTheUndeaf.Input.Buttons.KeyboardButton,RiseOfTheUndeaf.Game
+                                            Button: W
+                                    3b9fb3ebfced6e774f786606ba6af6d9: !RiseOfTheUndeaf.Input.Buttons.GamePadAxis,RiseOfTheUndeaf.Game
+                                        Axis: LeftY
+                                69fe3d3eed4df4e81040ac4fb460d669~Jump:
+                                    b65fabbb1a928665685cc3ffd09fc8ba: !RiseOfTheUndeaf.Input.Buttons.KeyboardButton,RiseOfTheUndeaf.Game
+                                        Button: Space
+                                    5cdd57c977754a019caa4710b9e04c42: !RiseOfTheUndeaf.Input.Buttons.GamePadButton,RiseOfTheUndeaf.Game
+                                        Button: A
+                                354966735bcd499623f002f0c03431df~CameraHorizontal:
+                                    f011ff88b619178484d0f35372b0e02f: !RiseOfTheUndeaf.Input.Buttons.GamePadAxis,RiseOfTheUndeaf.Game
+                                        Axis: RightX
+                                    93869d0c47f2b795e5c2db8dbfbc7222: !RiseOfTheUndeaf.Input.Buttons.Mouse,RiseOfTheUndeaf.Game
+                                        Action: DeltaX
+                                7273e2f3bc6e822d6e396d33d06b3402~CameraVertical:
+                                    10eb2d00db35d149357c564db2238458: !RiseOfTheUndeaf.Input.Buttons.GamePadAxis,RiseOfTheUndeaf.Game
+                                        Axis: RightY
+                                    cdedf925dd1efd227b97eb7a235d08ab: !RiseOfTheUndeaf.Input.Buttons.Mouse,RiseOfTheUndeaf.Game
+                                        Action: DeltaY
         -   Folder: Platform/Grid
             Entity:
                 Id: 605ce261-0f03-4563-b2d4-4ed4a7d4cd89

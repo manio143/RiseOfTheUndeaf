@@ -1,7 +1,7 @@
 ﻿using Stride.Input;
 using System;
 
-namespace RiseOfTheUndeaf.Input
+namespace RiseOfTheUndeaf.Input.Buttons
 {
     /// <summary>
     /// Applies a deadzone to joystick input (if in deadzone, returns 0).

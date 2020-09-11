@@ -30,11 +30,8 @@ namespace RiseOfTheUndeaf.Player
 
         public override void Start()
         {
-            if (InputSettings.ButtonBindings == null)
-                InputSettings.ButtonBindings = InputSettings.DefaultButtonBindings();
-
             Input.VirtualButtonConfigSet = Input.VirtualButtonConfigSet ?? new VirtualButtonConfigSet();
-            Input.VirtualButtonConfigSet.Add(InputSettings.ButtonBindings);
+            Input.VirtualButtonConfigSet.Add(InputSettings.CreateVirtualButtonConfig());
         }
 
         public override void Update()

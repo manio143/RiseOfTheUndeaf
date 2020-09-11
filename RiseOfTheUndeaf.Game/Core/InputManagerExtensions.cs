@@ -2,6 +2,7 @@
 // Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
 using Stride.Core.Mathematics;
 using Stride.Input;
+using System.Collections.Generic;
 
 namespace RiseOfTheUndeaf.Core
 {
@@ -14,6 +15,25 @@ namespace RiseOfTheUndeaf.Core
                 return false;
 
             return (gamepad.State.Buttons & button) == button;
+        }
+
+        public static List<GamePadButton> GamePadButtonsDown(this InputManager input, int index)
+        {
+            var gamepad = input.GetGamePadByIndex(index);
+            if (gamepad == null)
+                return null;
+
+            var buttons = new List<GamePadButton>();
+
+            ushort btnValue = 1;
+            for(int pwr = 0; pwr < 16; pwr++) // check each of 16 bits
+            {
+                var btn = (GamePadButton)btnValue;
+                if ((gamepad.State.Buttons & btn) == btn)
+                    buttons.Add(btn);
+                btnValue *= 2;
+            }
+            return buttons;
         }
 
         public static bool IsGamePadButtonDownAny(this InputManager input, GamePadButton button)
