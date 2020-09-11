@@ -12,5 +12,6 @@
     <PackageReference Include="Stride.Particles" Version="4.0.0.1-beta04" PrivateAssets="contentfiles;analyzers" />
     <PackageReference Include="Stride.Physics" Version="4.0.0.1-beta04" PrivateAssets="contentfiles;analyzers" />
     <PackageReference Include="Stride.UI" Version="4.0.0.1-beta04" PrivateAssets="contentfiles;analyzers" />
+    <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
   </ItemGroup>
 </Project>
