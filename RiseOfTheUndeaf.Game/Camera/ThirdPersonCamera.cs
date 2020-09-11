@@ -4,13 +4,12 @@ using System;
 using System.Collections.Generic;
 using Stride.Core.Mathematics;
 using Stride.Engine;
-using Stride.Engine.Events;
 using Stride.Physics;
-using RiseOfTheUndeaf.Player;
+using RiseOfTheUndeaf.EntityEvents.Camera;
 
 namespace RiseOfTheUndeaf.Camera
 {
-    public class ThirdPersonCamera : SyncScript
+    public class ThirdPersonCamera : SyncScript, ICameraEvents
     {
         /// <summary>
         /// Starting camera distance from the target
@@ -59,9 +58,9 @@ namespace RiseOfTheUndeaf.Camera
 
         private Vector3 cameraRotationXYZ = new Vector3(-20, 45, 0);
         private Vector3 targetRotationXYZ = new Vector3(-20, 45, 0);
-        private readonly EventReceiver<Vector2> cameraDirectionEvent = new EventReceiver<Vector2>(PlayerInput.CameraDirectionEventKey);
         private List<HitResult> resultsOutput;
         private ConeColliderShape coneShape;
+        private Vector2 cameraMovement;
 
         /// <summary>
         /// Raycast between the camera and its target. The script assumes the camera is a child entity of its target.
@@ -116,16 +115,14 @@ namespace RiseOfTheUndeaf.Camera
             Entity.Transform.Position.Z = maxLength;
         }
 
+        public void MoveBy(Vector2 direction) => cameraMovement = direction;
+
         /// <summary>
         /// Raycast between the camera and its target. The script assumes the camera is a child entity of its target.
         /// </summary>
         private void UpdateCameraOrientation()
         {
             var dt = this.GetSimulation().FixedTimeStep;
-
-            // Camera movement from player input
-            Vector2 cameraMovement;
-            cameraDirectionEvent.TryReceive(out cameraMovement);
 
             if (InvertY) cameraMovement.Y *= -1;
             targetRotationXYZ.X += cameraMovement.Y * dt * VerticalSpeed;
@@ -138,6 +135,9 @@ namespace RiseOfTheUndeaf.Camera
             // Very simple lerp to allow smoother transition of the camera towards its desired destination. You can change this behavior with a different one, better suited for your game.
             cameraRotationXYZ = Vector3.Lerp(cameraRotationXYZ, targetRotationXYZ, 0.15f);
             Entity.GetParent().Transform.RotationEulerXYZ = new Vector3(MathUtil.DegreesToRadians(cameraRotationXYZ.X), MathUtil.DegreesToRadians(cameraRotationXYZ.Y), 0);
+
+            // reset camera movement in case it won't be updated again
+            cameraMovement = Vector2.Zero;
         }
 
         public override void Update()

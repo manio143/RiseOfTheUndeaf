@@ -6,21 +6,14 @@ using Stride.Engine.Events;
 using Stride.Input;
 using RiseOfTheUndeaf.Core;
 using RiseOfTheUndeaf.Input;
+using RiseOfTheUndeaf.EntityEvents;
+using RiseOfTheUndeaf.EntityEvents.Character;
+using RiseOfTheUndeaf.EntityEvents.Camera;
 
 namespace RiseOfTheUndeaf.Player
 {
     public class PlayerInput : SyncScript
     {
-        /// <summary>
-        /// Raised every frame with the intended direction of movement from the player.
-        /// </summary>
-        // TODO Should not be static, but allow binding between player and controller
-        public static readonly EventKey<Vector3> MoveDirectionEventKey = new EventKey<Vector3>();
-
-        public static readonly EventKey<Vector2> CameraDirectionEventKey = new EventKey<Vector2>();
-
-        public static readonly EventKey<bool> JumpEventKey = new EventKey<bool>();
-        
         private bool jumpButtonDown = false;
         private bool cameraEnabled = false;
 
@@ -48,7 +41,8 @@ namespace RiseOfTheUndeaf.Player
             var didJump = (!jumpButtonDown && isJumpDown); //don't signal another jump when button wasn't released
             jumpButtonDown = isJumpDown;
 
-            JumpEventKey.Broadcast(didJump);
+            if (didJump)
+                Entity.BroadcastEvent<IMovementEvents>().Jump();
         }
 
         private void UpdateCameraRotation()
@@ -74,7 +68,7 @@ namespace RiseOfTheUndeaf.Player
 
             // Broadcast the camera direction directly, as a screen-space Vector2
             if (cameraEnabled)
-                CameraDirectionEventKey.Broadcast(cameraDirection);
+                Entity.BroadcastEvent<ICameraEvents>().MoveBy(cameraDirection);
         }
 
         private void DisableCameraRotation()
@@ -119,7 +113,7 @@ namespace RiseOfTheUndeaf.Player
 
             worldSpeed *= moveLength;
 
-            MoveDirectionEventKey.Broadcast(worldSpeed);
+            Entity.BroadcastEvent<IMovementEvents>().Move(worldSpeed);
         }
     }
 }

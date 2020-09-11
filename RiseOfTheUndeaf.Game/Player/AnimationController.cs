@@ -7,11 +7,11 @@ using Stride.Core.Collections;
 using Stride.Core.Mathematics;
 using Stride.Animations;
 using Stride.Engine;
-using Stride.Engine.Events;
+using RiseOfTheUndeaf.EntityEvents.Character;
 
 namespace RiseOfTheUndeaf.Player
 {
-    public class AnimationController : SyncScript, IBlendTreeBuilder
+    public class AnimationController : SyncScript, IBlendTreeBuilder, IAnimationEvents
     {
         [Display("Animation Component")]
         public AnimationComponent AnimationComponent { get; set; }
@@ -56,13 +56,11 @@ namespace RiseOfTheUndeaf.Player
         private AnimationClip animationClipWalkLerp2;
         private float walkLerpFactor = 0.5f;
 
-        // Internal state
         private bool isGrounded = false;
         private AnimationState state = AnimationState.Airborne;
-        private readonly EventReceiver<float> runSpeedEvent = new EventReceiver<float>(PlayerController.RunSpeedEventKey);
-        private readonly EventReceiver<bool> isGroundedEvent = new EventReceiver<bool>(PlayerController.IsGroundedEventKey);
 
         float runSpeed;
+        bool isGroundedNewValue;
 
         public override void Start()
         {
@@ -203,12 +201,12 @@ namespace RiseOfTheUndeaf.Player
             }
         }
 
+        public void SetRunSpeed(float speed) => runSpeed = speed;
+        public void SetGrounded(bool grounded) => isGroundedNewValue = grounded;
+
         public override void Update()
         {
             // State control
-            runSpeedEvent.TryReceive(out runSpeed);
-            bool isGroundedNewValue;
-            isGroundedEvent.TryReceive(out isGroundedNewValue);
             if (isGrounded != isGroundedNewValue)
             {
                 currentTime = 0;

@@ -1,4 +1,6 @@
-﻿using Stride.Core.Annotations;
+﻿using RiseOfTheUndeaf.EntityEvents;
+using RiseOfTheUndeaf.EntityEvents.Character;
+using Stride.Core.Annotations;
 using Stride.Core.Mathematics;
 using Stride.Engine;
 using Stride.Games;
@@ -37,12 +39,16 @@ namespace RiseOfTheUndeaf.Character
                 var movementComponent = kvp.Key;
                 var data = kvp.Value;
 
-                if(movementComponent.MoveDirection.HasValue)
+                if (movementComponent.MoveDirection.HasValue)
                 {
                     Move(movementComponent, data, movementComponent.MoveDirection.Value);
                     movementComponent.MoveDirection = null;
                 }
-                if(movementComponent.ShouldJump)
+                if (data.Character.IsGrounded)
+                {
+                    data.ModelEntityTransform.Entity.BroadcastEvent<IAnimationEvents>().SetGrounded(true);
+                }
+                if (movementComponent.ShouldJump)
                 {
                     Jump(movementComponent, data);
                     movementComponent.ShouldJump = false;
@@ -55,10 +61,8 @@ namespace RiseOfTheUndeaf.Character
             if (data.Character.IsGrounded)
             {
                 data.Character.Jump();
-                ; // TODO: broadcast groundness to children (animation)
+                data.ModelEntityTransform.Entity.BroadcastEvent<IAnimationEvents>().SetGrounded(false);
             }
-            else
-                ; // TODO: broadcast groundness to children (animation)
         }
 
         private void Move(CharacterMovementComponent component, Data data, Vector3 moveDirection)
@@ -68,7 +72,7 @@ namespace RiseOfTheUndeaf.Character
 
             data.Character.SetVelocity(component.LastMoveDirection * component.MovementSpeed);
 
-            // TODO: broadcast component.LastMoveDirection.Length() to children as speed (animation)
+            data.ModelEntityTransform.Entity.BroadcastEvent<IAnimationEvents>().SetRunSpeed(component.LastMoveDirection.Length());
 
             // Character orientation
             if (moveDirection.Length() > 0.001)

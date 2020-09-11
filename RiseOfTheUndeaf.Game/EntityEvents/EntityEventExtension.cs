@@ -144,7 +144,7 @@ namespace RiseOfTheUndeaf.EntityEvents
 
             il.MarkLabel(loop1end);
             il.Emit(OpCodes.Pop); //stack: entity
-            
+
             il.EmitCall(OpCodes.Call, typeof(EntityExtensions).GetMethod("GetChildren", BindingFlags.Static | BindingFlags.Public), null); //stack: children
             il.EmitCall(OpCodes.Callvirt, typeof(IEnumerable<Entity>).GetMethod("GetEnumerator"), null); //stack: enumerator
             il.Emit(OpCodes.Stloc, entityEnumerator); //stack:
@@ -155,13 +155,15 @@ namespace RiseOfTheUndeaf.EntityEvents
             il.MarkLabel(loop2start);
 
             // if(!entityEnumerator.MoveNext) jump to end
-            il.Emit(OpCodes.Ldloc, componentEnumerator); //stack: enumerator
+            il.Emit(OpCodes.Ldloc, entityEnumerator); //stack: enumerator
             il.Emit(OpCodes.Dup); //stack: enumerator, enumerator
             il.EmitCall(OpCodes.Callvirt, typeof(IEnumerator).GetMethod("MoveNext"), null); //stack: enumerator, bool
+
             il.Emit(OpCodes.Brfalse_S, loop2end); //stack: enumerator
 
             // child.BroadcastEvent<TEvent>().SomeMethod(params);)
             il.EmitCall(OpCodes.Callvirt, typeof(IEnumerator).GetProperty("Current").GetGetMethod(), null); //stack: entity
+
             il.EmitCall(OpCodes.Call, typeof(EntityEventExtension).GetMethod(nameof(BroadcastEvent), BindingFlags.Static | BindingFlags.Public).MakeGenericMethod(interfaceType), null); //stack: interface
             for (int i = 1; i <= imethod.GetParameters().Length; i++)
             {

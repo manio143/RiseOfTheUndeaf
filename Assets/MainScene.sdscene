@@ -2365,7 +2365,7 @@ Hierarchy:
                             c444819e77a60441a6144bd7bd8a4a23: ref!! 6ab3b76f-3b33-4273-a2f6-26e1577035b8
         -   Entity:
                 Id: 51a86f4d-298c-4fc4-964b-de29f9a624fc
-                Name: MannequinModel
+                Name: CharacterModel
                 Components:
                     1245d3c0d097e44e8295e28dad432562: !TransformComponent
                         Id: c0d34512-97d0-4ee4-8295-e28dad432562
@@ -2908,10 +2908,6 @@ Hierarchy:
                                 Radius: 0.4
                                 LocalOffset: {X: 0.0, Y: 0.95, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                    f722a19496166946a5d26eaf23d2ae03: !RiseOfTheUndeaf.Player.PlayerController,RiseOfTheUndeaf.Game
-                        Id: 94a122f7-1696-4669-a5d2-6eaf23d2ae03
-                        MaxRunSpeed: 8.5
-                        JumpReactionThreshold: 0.3
                     809bf66aef692646891c293be4ca17b2: !RiseOfTheUndeaf.Player.PlayerInput,RiseOfTheUndeaf.Game
                         Id: 6af69b80-69ef-4626-891c-293be4ca17b2
                         Camera: ref!! 65d1b71f-4862-4efc-b7c1-3c9d933979c7
@@ -2952,6 +2948,9 @@ Hierarchy:
                                         Axis: RightY
                                     cdedf925dd1efd227b97eb7a235d08ab: !RiseOfTheUndeaf.Input.Buttons.Mouse,RiseOfTheUndeaf.Game
                                         Action: DeltaY
+                    908eca909da271d9acd3b08f575467c2: !RiseOfTheUndeaf.Character.CharacterMovementComponent,RiseOfTheUndeaf.Game
+                        Id: 64610c73-b2f6-4618-9d29-0dabce81f104
+                        MovementSpeed: 8.5
         -   Folder: Platform/Grid
             Entity:
                 Id: 605ce261-0f03-4563-b2d4-4ed4a7d4cd89
