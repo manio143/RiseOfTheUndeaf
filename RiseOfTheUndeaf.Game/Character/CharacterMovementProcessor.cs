@@ -1,5 +1,8 @@
 ﻿using RiseOfTheUndeaf.EntityEvents;
 using RiseOfTheUndeaf.EntityEvents.Character;
+using RiseOfTheUndeaf.GameEvents;
+using RiseOfTheUndeaf.GameEvents.Events.Character;
+using RiseOfTheUndeaf.GameEvents.Listeners;
 using Stride.Core.Annotations;
 using Stride.Core.Mathematics;
 using Stride.Engine;
@@ -19,6 +22,8 @@ namespace RiseOfTheUndeaf.Character
             public float YawOrientation { get; set; }
         }
 
+        private GameEventSystem gameEventSystem;
+
         public CharacterMovementProcessor() : base(typeof(CharacterComponent))
         { }
 
@@ -34,6 +39,12 @@ namespace RiseOfTheUndeaf.Character
 
         public override void Update(GameTime time)
         {
+            if (gameEventSystem == null)
+            {
+                gameEventSystem = GameEventSystem.GetFromServices(Services);
+                gameEventSystem.RegisterListener(new TestJumpListener());
+            }
+
             foreach (var kvp in ComponentDatas)
             {
                 var movementComponent = kvp.Key;
@@ -62,6 +73,7 @@ namespace RiseOfTheUndeaf.Character
             {
                 data.Character.Jump();
                 data.ModelEntityTransform.Entity.BroadcastEvent<IAnimationEvents>().SetGrounded(false);
+                gameEventSystem.Log(new JumpEvent(movementComponent.Entity));
             }
         }
 

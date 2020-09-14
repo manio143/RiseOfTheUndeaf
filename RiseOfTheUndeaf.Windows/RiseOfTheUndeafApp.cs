@@ -8,6 +8,7 @@ namespace RiseOfTheUndeaf
         {
             using (var game = new Game())
             {
+                game.ConsoleLogMode = Stride.Core.Diagnostics.ConsoleLogMode.None;
                 game.Run();
             }
         }
