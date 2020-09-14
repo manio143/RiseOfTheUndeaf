@@ -85,6 +85,7 @@ Hierarchy:
         - ref!! 26a8a83d-1048-4830-8905-aa83c16df8e5
         - ref!! 76771248-c30c-4247-a20e-69306cfdb1cd
         - ref!! d99b1ad8-088d-4d47-ab06-1ff7e655e9f0
+        - ref!! 9e04c492-c9cd-4b66-a1de-d1feda0b9986
     Parts:
         -   Entity:
                 Id: 003ea996-d3d5-46e1-8f7c-e934945032b4
@@ -2388,6 +2389,7 @@ Hierarchy:
                         AnimationJumpStart: dc65b6a0-f550-45bb-87d8-722ea0d89979:Animations/Jump_Start
                         AnimationJumpMid: 8b2ddf65-b7d2-4f36-a52e-adbc88f595c2:Animations/Jump_Loop
                         AnimationJumpEnd: 70ffc2e6-156a-46c7-ad91-c2a23d10cb1f:Animations/Jump_End
+                        AnimationPunch: 764e5d68-4fd8-4008-ad61-f57b13caba89:Animations/Punch
                         WalkThreshold: 0.25
                         TimeFactor: 1.0
                     5847b2c0adfcf347a100f94d96c5d325: !AnimationComponent
@@ -2953,6 +2955,10 @@ Hierarchy:
                     908eca909da271d9acd3b08f575467c2: !CharacterMovement
                         Id: 64610c73-b2f6-4618-9d29-0dabce81f104
                         MovementSpeed: 8.5
+                    0f7eb89ef74a62c38a5360c29d4c5aca: !CharacterStats
+                        Id: 53e94dce-466f-484e-a7ec-cdfbff630dbb
+                        Health: 5
+                        MaxHealth: 5
         -   Folder: Platform/Grid
             Entity:
                 Id: 605ce261-0f03-4563-b2d4-4ed4a7d4cd89
@@ -4961,6 +4967,19 @@ Hierarchy:
                 BasePartId: fbdff817-df62-4a56-83f8-19a9d12589b8
                 InstanceId: de5b4e19-7f5a-4b9e-9c63-f9dd94b7a2c1
         -   Entity:
+                Id: 9e04c492-c9cd-4b66-a1de-d1feda0b9986
+                Name: DebugPhysicsShapes
+                Components:
+                    bdd889ab77f336a54b4448d4e3dc5f57: !TransformComponent
+                        Id: b5faf5cf-b21c-4872-8886-b7b5f2afbfb1
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    d0a8c7bf70e30949675070044397c8cf: !RiseOfTheUndeaf.DebugPhysicsShapes,RiseOfTheUndeaf.Game
+                        Id: bdb93771-5629-475d-b617-aead050508d4
+                        RenderGroup: Group7
+        -   Entity:
                 Id: 9ed41fde-ea3d-47fd-a38e-e12909bf42fd
                 Name: GridBase10x10
                 Components:
@@ -5148,6 +5167,15 @@ Hierarchy:
                         Id: cbf2a29f-00fe-4a21-b033-bc270fdb35e3
                         NavigationMesh: 91579344-5620-4654-990e-1a6907b9d3d9:NavigationMesh
                         GroupId: ed9e2c12-4403-40dd-a4d5-c22c7a0a3612
+                    4b51048e91e83e5e066f1315d321e413: !CharacterInteraction
+                        Id: 7e2c71da-1402-4cb6-b3e3-d3a016caee86
+                    6542802399c6ed92fb766d475c1c2709: !CharacterPunch
+                        Id: 0a1c86dd-1809-48e2-9547-5013b9e5db67
+                        InteractionSource: !RigidbodyComponent ref!! 5de63365-f8c3-4a32-a1e3-a4f34b52f8bc
+                    13aea0aebd4455102f8055c4b4d21c07: !CharacterStats
+                        Id: 7225f866-9696-462a-8c8c-95cc62e4d157
+                        Health: 1
+                        MaxHealth: 1
         -   Entity:
                 Id: a6a58bf2-0f1b-413b-bab2-0975547fbfb1
                 Name: Wall0x2x5 (4)
@@ -5478,6 +5506,43 @@ Hierarchy:
                 BasePartAsset: ac1061e0-5a9c-4368-ae4a-ba4ab63eb179:BlocksPrefabs/Wall0x2x5Window
                 BasePartId: 2afada92-6bdd-43d2-9806-ce0629937081
                 InstanceId: 8ec0d5c5-e187-4737-81f5-f8bef34ac1f5
+        -   Entity:
+                Id: b321a062-2c9c-4602-b0ee-c0c0360c2a20
+                Name: InteractionSource
+                Components:
+                    67f103e6866dca9be1f620fac22067ac: !TransformComponent
+                        Id: 03627a57-c156-4e7d-9316-05b6d9698b34
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    4b748420c6762f263651ca14c48cd707: !RigidbodyComponent
+                        Id: 5de63365-f8c3-4a32-a1e3-a4f34b52f8bc
+                        CollisionGroup: SensorTrigger
+                        CanCollideWith: KinematicFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: true
+                        IsKinematic: true
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            31b14662ac92f065d7b21526fd8cdd5e: !CapsuleColliderShapeDesc
+                                Length: 0.1
+                                Radius: 0.4
+                                LocalOffset: {X: 0.0, Y: 1.0, Z: 0.2}
+                                LocalRotation: {X: 0.70710677, Y: 0.0, Z: 0.0, W: 0.70710677}
+                    109aa629b38746fa91eb2a6683a81457: !RiseOfTheUndeaf.Character.CharacterInteractionSource,RiseOfTheUndeaf.Game
+                        Id: 6f7ad905-105c-40a9-90eb-41212899f8e9
+                        InteractionParent: ref!! 7e2c71da-1402-4cb6-b3e3-d3a016caee86
         -   Entity:
                 Id: b4d7e451-80b1-4fd1-9427-b0b5ed622c7e
                 Name: Floor2x0x1
@@ -7416,7 +7481,8 @@ Hierarchy:
                         Position: {X: 0.0, Y: 4.7683716E-07, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
+                        Children:
+                            bf354290e659b5f12e84150c8ef71760: ref!! 03627a57-c156-4e7d-9316-05b6d9698b34
                     0fa4902c57c2de428808e383912863ea: !ModelComponent
                         Id: 7b8ea756-d17c-43d2-b192-4668222df973
                         Model: b163aa75-5e15-485a-bb77-da42e1e03420:Models/mannequinModel
@@ -7431,6 +7497,7 @@ Hierarchy:
                         AnimationJumpStart: dc65b6a0-f550-45bb-87d8-722ea0d89979:Animations/Jump_Start
                         AnimationJumpMid: 8b2ddf65-b7d2-4f36-a52e-adbc88f595c2:Animations/Jump_Loop
                         AnimationJumpEnd: 70ffc2e6-156a-46c7-ad91-c2a23d10cb1f:Animations/Jump_End
+                        AnimationPunch: 764e5d68-4fd8-4008-ad61-f57b13caba89:Animations/Punch
                         WalkThreshold: 0.25
                         TimeFactor: 1.0
                     5847b2c0adfcf347a100f94d96c5d325: !AnimationComponent

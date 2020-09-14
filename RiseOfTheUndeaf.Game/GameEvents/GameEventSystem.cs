@@ -27,12 +27,12 @@ namespace RiseOfTheUndeaf.GameEvents
             {
                 var gameEvent = eventLog[eventsProcessed++];
 
+                logger.Info($"Processing event {gameEvent.GetType().Name} at {gameEvent.TimeStamp} => {gameEvent.ToLogString()}.");
+
                 foreach (var listener in listeners)
                 {
                     listener.ProcessEvent(gameEvent);
                 }
-
-                logger.Info($"Processed event {gameEvent.GetType().Name} at {gameEvent.TimeStamp} => {gameEvent.ToLogString()}.");
             }
         }
 
@@ -56,7 +56,7 @@ namespace RiseOfTheUndeaf.GameEvents
         /// <param name="listener"></param>
         public void RegisterListener(GameEventListener listener)
         {
-            lock(listeners)
+            lock (listeners)
             {
                 listeners.Add(listener);
                 logger.Debug($"New listener registered: {listener.GetType().Name}.");

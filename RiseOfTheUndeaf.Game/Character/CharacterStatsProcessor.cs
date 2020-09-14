@@ -3,6 +3,7 @@ using Stride.Engine;
 using Stride.Games;
 using Stride.Core.Mathematics;
 using RiseOfTheUndeaf.GameEvents.Events.Character;
+using RiseOfTheUndeaf.GameEvents.Listeners;
 
 namespace RiseOfTheUndeaf.Character
 {
@@ -13,7 +14,10 @@ namespace RiseOfTheUndeaf.Character
         public override void Update(GameTime time)
         {
             if (gameEventSystem == null)
+            {
                 gameEventSystem = GameEventSystem.GetFromServices(Services);
+                gameEventSystem.RegisterListener(new CharacterHealthListener());
+            }
 
             foreach (var kvp in ComponentDatas)
             {

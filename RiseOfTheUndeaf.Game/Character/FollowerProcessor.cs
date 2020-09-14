@@ -47,8 +47,6 @@ namespace RiseOfTheUndeaf.Character
 
                 data.Source.GetWorldTransformation(out var sourcePosition, out _, out _);
                 data.Target.GetWorldTransformation(out var targetPosition, out _, out _);
-                //sourcePosition.Y = 0;
-                //targetPosition.Y = 0;
 
                 if (targetPosition != data.LastTargetPosition)
                 {
@@ -82,7 +80,7 @@ namespace RiseOfTheUndeaf.Character
                 }
                 else
                 {
-                    if((nextTarget - sourcePosition).Length() > 0.82f)
+                    if ((nextTarget - sourcePosition).Length() > 0.82f)
                         return nextTarget;
                 }
 

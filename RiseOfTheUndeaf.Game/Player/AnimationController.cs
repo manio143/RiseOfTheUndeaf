@@ -34,6 +34,9 @@ namespace RiseOfTheUndeaf.Player
         [Display("Landing")]
         public AnimationClip AnimationJumpEnd { get; set; }
 
+        [Display("Punch")]
+        public AnimationClip AnimationPunch { get; set; }
+
         [DataMemberRange(0, 1, 0.01, 0.1, 3)]
         [Display("Walk Threshold")]
         public float WalkThreshold { get; set; } = 0.25f;
@@ -47,6 +50,7 @@ namespace RiseOfTheUndeaf.Player
         private AnimationClipEvaluator animEvaluatorJumpStart;
         private AnimationClipEvaluator animEvaluatorJumpMid;
         private AnimationClipEvaluator animEvaluatorJumpEnd;
+        private AnimationClipEvaluator animEvaluatorPunch;
         private double currentTime = 0;
 
         // Idle-Walk-Run lerp
@@ -87,6 +91,9 @@ namespace RiseOfTheUndeaf.Player
             if (AnimationJumpEnd == null)
                 throw new InvalidOperationException("Landing animation is not set");
 
+            if (AnimationPunch == null)
+                throw new InvalidOperationException("Punching animation is not set");
+
             // By setting a custom blend tree builder we can override the default behavior of the animation system
             //  Instead, BuildBlendTree(FastList<AnimationOperation> blendStack) will be called each frame
             AnimationComponent.BlendTreeBuilder = this;
@@ -97,6 +104,7 @@ namespace RiseOfTheUndeaf.Player
             animEvaluatorJumpStart = AnimationComponent.Blender.CreateEvaluator(AnimationJumpStart);
             animEvaluatorJumpMid = AnimationComponent.Blender.CreateEvaluator(AnimationJumpMid);
             animEvaluatorJumpEnd = AnimationComponent.Blender.CreateEvaluator(AnimationJumpEnd);
+            animEvaluatorPunch = AnimationComponent.Blender.CreateEvaluator(AnimationPunch);
 
             // Initial walk lerp
             walkLerpFactor = 0;
@@ -114,6 +122,7 @@ namespace RiseOfTheUndeaf.Player
             AnimationComponent.Blender.ReleaseEvaluator(animEvaluatorJumpStart);
             AnimationComponent.Blender.ReleaseEvaluator(animEvaluatorJumpMid);
             AnimationComponent.Blender.ReleaseEvaluator(animEvaluatorJumpEnd);
+            AnimationComponent.Blender.ReleaseEvaluator(animEvaluatorPunch);
         }
 
         private void UpdateWalking()
@@ -201,6 +210,30 @@ namespace RiseOfTheUndeaf.Player
             }
         }
 
+        private void UpdatePunching()
+        {
+            var speedFactor = 1;
+            var currentTicks = TimeSpan.FromTicks((long)(currentTime * AnimationPunch.Duration.Ticks));
+            var updatedTicks = currentTicks.Ticks + (long)(Game.DrawTime.Elapsed.Ticks * TimeFactor * speedFactor);
+
+            if (updatedTicks < AnimationPunch.Duration.Ticks)
+            {
+                currentTicks = TimeSpan.FromTicks(updatedTicks);
+                currentTime = ((double)currentTicks.Ticks / (double)AnimationPunch.Duration.Ticks);
+            }
+            else
+            {
+                state = AnimationState.Walking;
+                currentTime = 0;
+                UpdateWalking();
+            }
+        }
+
+        public void Punch()
+        {
+            currentTime = 0;
+            state = AnimationState.Punching;
+        }
         public void SetRunSpeed(float speed) => runSpeed = speed;
         public void SetGrounded(bool grounded) => isGroundedNewValue = grounded;
 
@@ -220,6 +253,7 @@ namespace RiseOfTheUndeaf.Player
                 case AnimationState.Jumping:  UpdateJumping();  break;
                 case AnimationState.Airborne: UpdateAirborne(); break;
                 case AnimationState.Landing:  UpdateLanding();  break;
+                case AnimationState.Punching: UpdatePunching(); break;
             }
         }
 
@@ -263,6 +297,12 @@ namespace RiseOfTheUndeaf.Player
                             TimeSpan.FromTicks((long)(currentTime * AnimationJumpEnd.Duration.Ticks))));
                     }
                     break;
+                case AnimationState.Punching:
+                    {
+                        blendStack.Add(AnimationOperation.NewPush(animEvaluatorPunch,
+                            TimeSpan.FromTicks((long)(currentTime * AnimationPunch.Duration.Ticks))));
+                    }
+                    break;
             }
         }
 
@@ -272,6 +312,7 @@ namespace RiseOfTheUndeaf.Player
             Jumping,
             Airborne,
             Landing,
+            Punching,
         }
     }
 }
