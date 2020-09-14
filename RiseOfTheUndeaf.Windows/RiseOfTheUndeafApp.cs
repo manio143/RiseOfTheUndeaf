@@ -1,4 +1,6 @@
+using Stride.Core.Diagnostics;
 using Stride.Engine;
+using System.Diagnostics;
 
 namespace RiseOfTheUndeaf
 {
@@ -6,10 +8,35 @@ namespace RiseOfTheUndeaf
     {
         static void Main(string[] args)
         {
-            using (var game = new Game())
+            using (var game = new CustomGame())
             {
-                game.ConsoleLogMode = Stride.Core.Diagnostics.ConsoleLogMode.None;
                 game.Run();
+            }
+        }
+    }
+
+    class CustomGame : Game
+    {
+        protected override LogListener GetLogListener()
+        {
+            return new DebugLogListener();
+        }
+    }
+
+    class DebugLogListener : LogListener
+    {
+        protected override void OnLog(ILogMessage logMessage)
+        {
+            var exceptionMsg = GetExceptionText(logMessage);
+
+            if (Debugger.IsAttached)
+            {
+                // Log the actual message
+                Debug.WriteLine(GetDefaultText(logMessage));
+                if (!string.IsNullOrEmpty(exceptionMsg))
+                {
+                    Debug.WriteLine(exceptionMsg);
+                }
             }
         }
     }
