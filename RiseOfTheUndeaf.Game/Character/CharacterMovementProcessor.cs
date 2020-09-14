@@ -82,9 +82,12 @@ namespace RiseOfTheUndeaf.Character
             // Allow very simple inertia to the character to make animation transitions more fluid
             component.LastMoveDirection = component.LastMoveDirection * 0.85f + moveDirection * 0.15f;
 
-            data.Character.SetVelocity(component.LastMoveDirection * component.MovementSpeed);
+            if (data.Character.IsActive) // check if the physics component has been properly attached
+                data.Character.SetVelocity(component.LastMoveDirection * component.MovementSpeed);
 
-            data.ModelEntityTransform.Entity.BroadcastEvent<IAnimationEvents>().SetRunSpeed(component.LastMoveDirection.Length());
+            var runSpeed = component.LastMoveDirection.Length();
+            runSpeed *= component.MovementSpeed >= 5 ? 1f : 0.3f; // slow characters should be walking
+            data.ModelEntityTransform.Entity.BroadcastEvent<IAnimationEvents>().SetRunSpeed(runSpeed);
 
             // Character orientation
             if (moveDirection.Length() > 0.001)

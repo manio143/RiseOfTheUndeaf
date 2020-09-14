@@ -1,11 +1,13 @@
 ﻿using RiseOfTheUndeaf.EntityEvents.Character;
 using Stride.Core;
 using Stride.Engine;
+using Stride.Engine.Design;
 
 namespace RiseOfTheUndeaf.Character
 {
     [DataContract("CharacterStats")]
     [Display("Character Stats")]
+    [DefaultEntityComponentProcessor(typeof(CharacterStatsProcessor))]
     public class CharacterStatsComponent : EntityComponent, IDamageEvents
     {
         /// <summary>

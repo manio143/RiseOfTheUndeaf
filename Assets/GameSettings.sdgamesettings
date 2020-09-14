@@ -22,6 +22,27 @@ Defaults:
         FixedTimeStep: 0.016666668
     - !Stride.Audio.AudioEngineSettings,Stride.Audio
         HrtfSupport: false
+    - !Stride.Navigation.NavigationSettings,Stride.Navigation
+        EnableDynamicNavigationMesh: false
+        IncludedCollisionGroups: AllFilter
+        BuildSettings:
+            CellHeight: 0.0
+            CellSize: 0.0
+            TileSize: 0
+            MinRegionArea: 0
+            RegionMergeArea: 0
+            MaxEdgeLen: 0.0
+            MaxEdgeError: 0.0
+            DetailSamplingDistance: 0.0
+            MaxDetailSamplingError: 0.0
+        Groups:
+            -   Id: ed9e2c12-4403-40dd-a4d5-c22c7a0a3612
+                Name: FollowCharacter
+                AgentSettings:
+                    Height: 1.6
+                    MaxClimb: 0.25
+                    MaxSlope: {Radians: 0.7853982}
+                    Radius: 0.3
     - !Stride.Streaming.StreamingSettings,Stride.Rendering
         ManagerUpdatesInterval: 0:00:00:00.0330000
         ResourceLiveTimeout: 0:00:00:08.0000000
