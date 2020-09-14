@@ -1,0 +1,115 @@
+!PrefabAsset
+Id: 1562de5e-b1b0-4cc3-966a-a53dcb0399a4
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! 6ffe5b3d-7766-4609-972a-b599226c901c
+    Parts:
+        -   Entity:
+                Id: 05130ee6-6675-42ba-96b0-9e5bdcba5345
+                Name: InteractionSource
+                Components:
+                    67f103e6866dca9be1f620fac22067ac: !TransformComponent
+                        Id: 1d3a1690-ad0c-4bd7-ae02-826b60cb753a
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    4b748420c6762f263651ca14c48cd707: !RigidbodyComponent
+                        Id: 1eb74122-5719-4e31-90bb-65ce9ecba885
+                        CollisionGroup: SensorTrigger
+                        CanCollideWith: KinematicFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: true
+                        IsKinematic: true
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            31b14662ac92f065d7b21526fd8cdd5e: !CapsuleColliderShapeDesc
+                                Length: 0.1
+                                Radius: 0.4
+                                LocalOffset: {X: 0.0, Y: 1.0, Z: 0.2}
+                                LocalRotation: {X: 0.70710677, Y: 0.0, Z: 0.0, W: 0.70710677}
+                    109aa629b38746fa91eb2a6683a81457: !RiseOfTheUndeaf.Character.CharacterInteractionSource,RiseOfTheUndeaf.Game
+                        Id: 7b6b7aed-208b-4326-bf27-53dc02f4277c
+                        InteractionParent: ref!! ee06ca56-08cf-465c-93ef-13f51fdd98d2
+        -   Folder: null
+            Entity:
+                Id: 37dac3d9-bb2a-4c95-929a-67d64b88025d
+                Name: CharacterModel
+                Components:
+                    1245d3c0d097e44e8295e28dad432562: !TransformComponent
+                        Id: 071073be-837b-4348-88b0-28a5580db3f8
+                        Position: {X: 0.0, Y: 4.7683716E-07, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            6753046f4673a97086033eb761635eda: ref!! 1d3a1690-ad0c-4bd7-ae02-826b60cb753a
+                    0fa4902c57c2de428808e383912863ea: !ModelComponent
+                        Id: 4adc4a99-4049-40a6-a7cf-ff0597adc185
+                        Model: b163aa75-5e15-485a-bb77-da42e1e03420:Models/mannequinModel
+                        Materials:
+                            d4c1f6ff361ccc5f3e8d807b0d98d96e~1: 52257376-bb55-473b-9688-d394c247864b:Materials/EmissiveRed
+                    978eabfaac453f4d9375495d32bc299f: !RiseOfTheUndeaf.Player.AnimationController,RiseOfTheUndeaf.Game
+                        Id: d7138de2-59cf-4590-b537-42a255383d4a
+                        AnimationComponent: ref!! 7e2332d5-a2d1-4c84-90b1-32b0a4bb2eda
+                        AnimationIdle: 7084fe9f-6cca-4bee-89d4-766f4a4301cb:Animations/Idle
+                        AnimationWalk: d7d1fd79-1307-411a-8e19-38a119a84f8a:Animations/Walk
+                        AnimationRun: 66aeed58-aa8f-4b34-9525-6cc6b1f749f7:Animations/Run
+                        AnimationJumpStart: dc65b6a0-f550-45bb-87d8-722ea0d89979:Animations/Jump_Start
+                        AnimationJumpMid: 8b2ddf65-b7d2-4f36-a52e-adbc88f595c2:Animations/Jump_Loop
+                        AnimationJumpEnd: 70ffc2e6-156a-46c7-ad91-c2a23d10cb1f:Animations/Jump_End
+                        AnimationPunch: 764e5d68-4fd8-4008-ad61-f57b13caba89:Animations/Punch
+                        WalkThreshold: 0.25
+                        TimeFactor: 1.0
+                    5847b2c0adfcf347a100f94d96c5d325: !AnimationComponent
+                        Id: 7e2332d5-a2d1-4c84-90b1-32b0a4bb2eda
+                        Animations: {}
+        -   Entity:
+                Id: 6ffe5b3d-7766-4609-972a-b599226c901c
+                Name: Character
+                Components:
+                    b296752080481e41b569d385767428ce: !TransformComponent
+                        Id: 40d678e9-3b22-4010-923f-23933ae40b4d
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            1245d3c0d097e44e8295e28dad432562: ref!! 071073be-837b-4348-88b0-28a5580db3f8
+                    b978a0332590234b9f3a3537f50e75ae: !CharacterComponent
+                        Id: 9d0c95ec-c666-4688-a348-6c66023d2185
+                        CollisionGroup: KinematicFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        FallSpeed: 10.0
+                        MaxSlope: {Radians: 0.7853982}
+                        JumpSpeed: 13.0
+                        Gravity: {X: 0.0, Y: -40.0, Z: 0.0}
+                        ColliderShapes:
+                            56a5239435c0e54188f913fd5d2f5dee: !CapsuleColliderShapeDesc
+                                Length: 1.2
+                                Radius: 0.4
+                                LocalOffset: {X: 0.0, Y: 0.95, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    908eca909da271d9acd3b08f575467c2: !CharacterMovement
+                        Id: cdc93216-6c1b-4541-9548-15fbec77397e
+                    4b51048e91e83e5e066f1315d321e413: !CharacterInteraction
+                        Id: ee06ca56-08cf-465c-93ef-13f51fdd98d2
+                    13aea0aebd4455102f8055c4b4d21c07: !CharacterStats
+                        Id: c24463c9-0524-4614-87c9-1bcfdd5ee0fb
+                        Health: 1
+                        MaxHealth: 1

@@ -8,8 +8,6 @@ Hierarchy:
     RootParts:
         - ref!! 27a91eaf-7622-42b4-89a2-3495a753b8d9
         - ref!! e1d761e6-634d-4773-8d81-75dfc8e8b1c4
-        - ref!! 5fc52dcf-f9f8-4c6d-b32d-3fc989aea8ad
-        - ref!! a696dc46-5cb6-4aa5-b87e-96d31174d696
         - ref!! 39790120-ebaf-43d5-8b06-e1aaa22d2f51
         - ref!! 605ce261-0f03-4563-b2d4-4ed4a7d4cd89
         - ref!! 3f6c30db-f1ee-4476-98fe-7f9a36be4874
@@ -86,6 +84,8 @@ Hierarchy:
         - ref!! 76771248-c30c-4247-a20e-69306cfdb1cd
         - ref!! d99b1ad8-088d-4d47-ab06-1ff7e655e9f0
         - ref!! 9e04c492-c9cd-4b66-a1de-d1feda0b9986
+        - ref!! a52a7c4a-9cf2-47f3-9028-607ad77f263f
+        - ref!! c4992244-fec7-427d-b399-bc6d5cfbb59e
     Parts:
         -   Entity:
                 Id: 003ea996-d3d5-46e1-8f7c-e934945032b4
@@ -1939,6 +1939,42 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             674fdd1fb2513d41ab88936773660929: ref!! 1fdd4f67-51b2-413d-ab88-936773660929
+        -   Folder: null
+            Entity:
+                Id: 385b9b32-ff83-4699-a41a-478406ed9307
+                Name: CharacterModel
+                Components:
+                    1245d3c0d097e44e8295e28dad432562: !TransformComponent
+                        Id: 63272323-4b5e-439d-a1cd-a9a90f6a6625
+                        Position: {X: 0.0, Y: 4.7683716E-07, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            6753046f4673a97086033eb761635eda: ref!! 29f5147a-d34c-4ebb-8c55-aad2ef2837d7
+                    0fa4902c57c2de428808e383912863ea: !ModelComponent
+                        Id: 9cd207ee-e775-44d4-b9f8-561978e2d5ca
+                        Model: b163aa75-5e15-485a-bb77-da42e1e03420:Models/mannequinModel
+                        Materials:
+                            d4c1f6ff361ccc5f3e8d807b0d98d96e~1: 8493a7a7-ad3a-4a16-8efa-cb6cf4c3ff38:Materials/Emissive
+                    978eabfaac453f4d9375495d32bc299f: !RiseOfTheUndeaf.Player.AnimationController,RiseOfTheUndeaf.Game
+                        Id: d910d9a3-fcfa-4e60-adcc-cd8fddf48e4c
+                        AnimationComponent: ref!! 4ae030f5-b118-4dd2-93f4-0c3fd926b76f
+                        AnimationIdle: 7084fe9f-6cca-4bee-89d4-766f4a4301cb:Animations/Idle
+                        AnimationWalk: d7d1fd79-1307-411a-8e19-38a119a84f8a:Animations/Walk
+                        AnimationRun: 66aeed58-aa8f-4b34-9525-6cc6b1f749f7:Animations/Run
+                        AnimationJumpStart: dc65b6a0-f550-45bb-87d8-722ea0d89979:Animations/Jump_Start
+                        AnimationJumpMid: 8b2ddf65-b7d2-4f36-a52e-adbc88f595c2:Animations/Jump_Loop
+                        AnimationJumpEnd: 70ffc2e6-156a-46c7-ad91-c2a23d10cb1f:Animations/Jump_End
+                        AnimationPunch: 764e5d68-4fd8-4008-ad61-f57b13caba89:Animations/Punch
+                        WalkThreshold: 0.25
+                        TimeFactor: 1.0
+                    5847b2c0adfcf347a100f94d96c5d325: !AnimationComponent
+                        Id: 4ae030f5-b118-4dd2-93f4-0c3fd926b76f
+                        Animations: {}
+            Base:
+                BasePartAsset: 1b21e7e0-fe6d-4212-a039-c517bd202000:Characters/PlayerCharacter
+                BasePartId: 9fed0456-e4fe-4cbd-852b-0da507e15b51
+                InstanceId: fe45575d-985e-4964-81c4-ca33a2655757
         -   Entity:
                 Id: 38b1ac0d-cd53-4266-85e1-31b78526baae
                 Name: Wall0x2x5 (7)
@@ -2366,35 +2402,6 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             c444819e77a60441a6144bd7bd8a4a23: ref!! 6ab3b76f-3b33-4273-a2f6-26e1577035b8
-        -   Entity:
-                Id: 51a86f4d-298c-4fc4-964b-de29f9a624fc
-                Name: CharacterModel
-                Components:
-                    1245d3c0d097e44e8295e28dad432562: !TransformComponent
-                        Id: c0d34512-97d0-4ee4-8295-e28dad432562
-                        Position: {X: 0.0, Y: 4.7683716E-07, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    0fa4902c57c2de428808e383912863ea: !ModelComponent
-                        Id: 2c90a40f-c257-42de-8808-e383912863ea
-                        Model: b163aa75-5e15-485a-bb77-da42e1e03420:Models/mannequinModel
-                        Materials: {}
-                    978eabfaac453f4d9375495d32bc299f: !RiseOfTheUndeaf.Player.AnimationController,RiseOfTheUndeaf.Game
-                        Id: faab8e97-45ac-4d3f-9375-495d32bc299f
-                        AnimationComponent: ref!! c0b24758-fcad-47f3-a100-f94d96c5d325
-                        AnimationIdle: 7084fe9f-6cca-4bee-89d4-766f4a4301cb:Animations/Idle
-                        AnimationWalk: d7d1fd79-1307-411a-8e19-38a119a84f8a:Animations/Walk
-                        AnimationRun: 66aeed58-aa8f-4b34-9525-6cc6b1f749f7:Animations/Run
-                        AnimationJumpStart: dc65b6a0-f550-45bb-87d8-722ea0d89979:Animations/Jump_Start
-                        AnimationJumpMid: 8b2ddf65-b7d2-4f36-a52e-adbc88f595c2:Animations/Jump_Loop
-                        AnimationJumpEnd: 70ffc2e6-156a-46c7-ad91-c2a23d10cb1f:Animations/Jump_End
-                        AnimationPunch: 764e5d68-4fd8-4008-ad61-f57b13caba89:Animations/Punch
-                        WalkThreshold: 0.25
-                        TimeFactor: 1.0
-                    5847b2c0adfcf347a100f94d96c5d325: !AnimationComponent
-                        Id: c0b24758-fcad-47f3-a100-f94d96c5d325
-                        Animations: {}
         -   Entity:
                 Id: 522c2220-4fce-440d-9463-c475dd1ba4f5
                 Name: Box2x1x1
@@ -2881,84 +2888,6 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             10c0801cc1dd4143933cbc13534ebf54: ref!! dd001cfe-5325-4164-94e2-28e3916d7c30
-        -   Entity:
-                Id: 5fc52dcf-f9f8-4c6d-b32d-3fc989aea8ad
-                Name: PlayerCharacter
-                Components:
-                    b296752080481e41b569d385767428ce: !TransformComponent
-                        Id: 207596b2-4880-411e-b569-d385767428ce
-                        Position: {X: -5.0, Y: 0.1, Z: 5.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children:
-                            1245d3c0d097e44e8295e28dad432562: ref!! c0d34512-97d0-4ee4-8295-e28dad432562
-                            39d4bdb202782a41869f2a6d53da4edf: ref!! b2bdd439-7802-412a-869f-2a6d53da4edf
-                    b978a0332590234b9f3a3537f50e75ae: !CharacterComponent
-                        Id: 33a078b9-9025-4b23-9f3a-3537f50e75ae
-                        CollisionGroup: KinematicFilter
-                        CanSleep: false
-                        Restitution: 0.0
-                        Friction: 0.5
-                        RollingFriction: 0.0
-                        CcdMotionThreshold: 0.0
-                        CcdSweptSphereRadius: 0.0
-                        FallSpeed: 10.0
-                        MaxSlope: {Radians: 0.7853982}
-                        JumpSpeed: 13.0
-                        Gravity: {X: 0.0, Y: -40.0, Z: 0.0}
-                        ColliderShapes:
-                            56a5239435c0e54188f913fd5d2f5dee: !CapsuleColliderShapeDesc
-                                Length: 1.2
-                                Radius: 0.4
-                                LocalOffset: {X: 0.0, Y: 0.95, Z: 0.0}
-                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                    809bf66aef692646891c293be4ca17b2: !RiseOfTheUndeaf.Player.PlayerInput,RiseOfTheUndeaf.Game
-                        Id: 6af69b80-69ef-4626-891c-293be4ca17b2
-                        Camera: ref!! 65d1b71f-4862-4efc-b7c1-3c9d933979c7
-                        InputSettings:
-                            JoystickDeadZone: 0.25
-                            MouseSensitivity: 80.0
-                            InvertMouseX: false
-                            InvertMouseY: false
-                            ButtonBindings:
-                                23e5d3f889ba38a7016282a52c54c030~MovementHorizontal:
-                                    e3782cf756e2a990ed8b582539804157: !RiseOfTheUndeaf.Input.Buttons.AxisFromButtons,RiseOfTheUndeaf.Game
-                                        NegativeButton: !RiseOfTheUndeaf.Input.Buttons.KeyboardButton,RiseOfTheUndeaf.Game
-                                            Button: A
-                                        PositiveButton: !RiseOfTheUndeaf.Input.Buttons.KeyboardButton,RiseOfTheUndeaf.Game
-                                            Button: D
-                                    d7f69b480bfecac2aa4746009b8e2238: !RiseOfTheUndeaf.Input.Buttons.GamePadAxis,RiseOfTheUndeaf.Game
-                                        Axis: LeftX
-                                ec8df745ea344f350bf9ecdf1c238fb4~MovementVertical:
-                                    64f485434ac0bb46b93dc2317af612a1: !RiseOfTheUndeaf.Input.Buttons.AxisFromButtons,RiseOfTheUndeaf.Game
-                                        NegativeButton: !RiseOfTheUndeaf.Input.Buttons.KeyboardButton,RiseOfTheUndeaf.Game
-                                            Button: S
-                                        PositiveButton: !RiseOfTheUndeaf.Input.Buttons.KeyboardButton,RiseOfTheUndeaf.Game
-                                            Button: W
-                                    3b9fb3ebfced6e774f786606ba6af6d9: !RiseOfTheUndeaf.Input.Buttons.GamePadAxis,RiseOfTheUndeaf.Game
-                                        Axis: LeftY
-                                69fe3d3eed4df4e81040ac4fb460d669~Jump:
-                                    b65fabbb1a928665685cc3ffd09fc8ba: !RiseOfTheUndeaf.Input.Buttons.KeyboardButton,RiseOfTheUndeaf.Game
-                                        Button: Space
-                                    5cdd57c977754a019caa4710b9e04c42: !RiseOfTheUndeaf.Input.Buttons.GamePadButton,RiseOfTheUndeaf.Game
-                                        Button: A
-                                354966735bcd499623f002f0c03431df~CameraHorizontal:
-                                    f011ff88b619178484d0f35372b0e02f: !RiseOfTheUndeaf.Input.Buttons.GamePadAxis,RiseOfTheUndeaf.Game
-                                        Axis: RightX
-                                    93869d0c47f2b795e5c2db8dbfbc7222: !RiseOfTheUndeaf.Input.Buttons.Mouse,RiseOfTheUndeaf.Game
-                                        Action: DeltaX
-                                7273e2f3bc6e822d6e396d33d06b3402~CameraVertical:
-                                    10eb2d00db35d149357c564db2238458: !RiseOfTheUndeaf.Input.Buttons.GamePadAxis,RiseOfTheUndeaf.Game
-                                        Axis: RightY
-                                    cdedf925dd1efd227b97eb7a235d08ab: !RiseOfTheUndeaf.Input.Buttons.Mouse,RiseOfTheUndeaf.Game
-                                        Action: DeltaY
-                    908eca909da271d9acd3b08f575467c2: !CharacterMovement
-                        Id: 64610c73-b2f6-4618-9d29-0dabce81f104
-                        MovementSpeed: 8.5
-                    0f7eb89ef74a62c38a5360c29d4c5aca: !CharacterStats
-                        Id: 53e94dce-466f-484e-a7ec-cdfbff630dbb
-                        Health: 5
-                        MaxHealth: 5
         -   Folder: Platform/Grid
             Entity:
                 Id: 605ce261-0f03-4563-b2d4-4ed4a7d4cd89
@@ -4735,6 +4664,37 @@ Hierarchy:
                 BasePartAsset: a6628f38-9b9c-40a5-9754-4005f745aba3:BlocksPrefabs/Wall0x2x5
                 BasePartId: fbdff817-df62-4a56-83f8-19a9d12589b8
                 InstanceId: d7ae33b3-c413-4e64-bd82-0e870f2607fb
+        -   Folder: null
+            Entity:
+                Id: 97ccd1fa-ba83-4dad-9b14-9b62ef51e6c3
+                Name: Camera
+                Components:
+                    a116d811cab5bf4da5211050e1d34e10: !TransformComponent
+                        Id: c9c6c994-df63-413b-b606-81e7f9f58476
+                        Position: {X: 0.0, Y: 0.0, Z: 5.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    1fb7d1656248fc4eb7c13c9d933979c7: !CameraComponent
+                        Id: 7adc3334-849b-464e-8037-fc9953b18d2a
+                        Name: null
+                        Projection: Perspective
+                        Slot*: 9aeac611-d1f6-46da-a235-e20cc154e170
+                    cffbc9ddf95f8544a284e04ea2d27d8a: !RiseOfTheUndeaf.Camera.ThirdPersonCamera,RiseOfTheUndeaf.Game
+                        Id: 5ccd92b3-0208-46a3-bf2c-8469b6e99dcb
+                        DefaultDistance: 6.0
+                        MinimumDistance: 0.4
+                        ConeRadius: 1.25
+                        InvertX: false
+                        MinVerticalAngle: -20.0
+                        MaxVerticalAngle: 70.0
+                        InvertY: false
+                        RotationSpeed: 360.0
+                        VerticalSpeed: 45.0
+            Base:
+                BasePartAsset: 1b21e7e0-fe6d-4212-a039-c517bd202000:Characters/PlayerCharacter
+                BasePartId: eb1a50fd-f1d3-4969-94fd-9e0e3c1d2db9
+                InstanceId: fe45575d-985e-4964-81c4-ca33a2655757
         -   Entity:
                 Id: 98487dd8-720b-481a-b60e-242e4a8b11e8
                 Name: Wall0x2x5Window (2)
@@ -4979,6 +4939,42 @@ Hierarchy:
                     d0a8c7bf70e30949675070044397c8cf: !RiseOfTheUndeaf.DebugPhysicsShapes,RiseOfTheUndeaf.Game
                         Id: bdb93771-5629-475d-b617-aead050508d4
                         RenderGroup: Group7
+        -   Folder: null
+            Entity:
+                Id: 9ea228dc-56eb-4674-ae8e-97d372096d01
+                Name: CharacterModel
+                Components:
+                    1245d3c0d097e44e8295e28dad432562: !TransformComponent
+                        Id: f1ddb92f-4ac5-4fe2-b4c9-ea3d2d581f2f
+                        Position*: {X: 0.0, Y: 4.7683716E-07, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            6753046f4673a97086033eb761635eda: ref!! a2ad1f1c-0744-445c-b503-bcbc9123639e
+                    0fa4902c57c2de428808e383912863ea: !ModelComponent
+                        Id: db7ef393-8caa-4cea-ba3e-c772204569de
+                        Model: b163aa75-5e15-485a-bb77-da42e1e03420:Models/mannequinModel
+                        Materials:
+                            d4c1f6ff361ccc5f3e8d807b0d98d96e~1: 52257376-bb55-473b-9688-d394c247864b:Materials/EmissiveRed
+                    978eabfaac453f4d9375495d32bc299f: !RiseOfTheUndeaf.Player.AnimationController,RiseOfTheUndeaf.Game
+                        Id: 993059a5-cff9-4f80-8a0b-be7a35caaeb0
+                        AnimationComponent: ref!! cccee970-2535-42d8-a1bf-be6d0ecb9b80
+                        AnimationIdle: 7084fe9f-6cca-4bee-89d4-766f4a4301cb:Animations/Idle
+                        AnimationWalk: d7d1fd79-1307-411a-8e19-38a119a84f8a:Animations/Walk
+                        AnimationRun: 66aeed58-aa8f-4b34-9525-6cc6b1f749f7:Animations/Run
+                        AnimationJumpStart: dc65b6a0-f550-45bb-87d8-722ea0d89979:Animations/Jump_Start
+                        AnimationJumpMid: 8b2ddf65-b7d2-4f36-a52e-adbc88f595c2:Animations/Jump_Loop
+                        AnimationJumpEnd: 70ffc2e6-156a-46c7-ad91-c2a23d10cb1f:Animations/Jump_End
+                        AnimationPunch: 764e5d68-4fd8-4008-ad61-f57b13caba89:Animations/Punch
+                        WalkThreshold: 0.25
+                        TimeFactor: 1.0
+                    5847b2c0adfcf347a100f94d96c5d325: !AnimationComponent
+                        Id: cccee970-2535-42d8-a1bf-be6d0ecb9b80
+                        Animations: {}
+            Base:
+                BasePartAsset: d8bc40c2-0e84-497e-a44b-fea8fb69975e:Characters/ZombieCharacter
+                BasePartId: eaf019bc-02b2-4780-a130-d38f684d5301
+                InstanceId: aabbe27e-1217-4d53-864b-c26491706cf1
         -   Entity:
                 Id: 9ed41fde-ea3d-47fd-a38e-e12909bf42fd
                 Name: GridBase10x10
@@ -5113,32 +5109,19 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             db07bec9b88cb84e9f8d6d3511eb10f2: ref!! 998654e2-2552-4dbb-ab84-081012503c7c
-        -   Folder: Complex
-            Entity:
-                Id: a64c0c6e-a688-4a61-b889-9c8925a11157
-                Name: Wall0x2x2Window
-                Components:
-                    04b9812a7f20ce4486c686110d3172ad: !TransformComponent
-                        Id: 7f522506-fb54-4380-8f7a-3ee15d41e07a
-                        Position: {X: -9.0, Y: 0.0, Z: -5.0}
-                        Rotation: {X: 0.0, Y: 0.70710677, Z: 0.0, W: 0.70710677}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children:
-                            9bd6c2826922c24ba23d41e3a7a958f6: ref!! 82c2d69b-2269-4bc2-a23d-41e3a7a958f6
-        -   Folder: null
-            Entity:
-                Id: a696dc46-5cb6-4aa5-b87e-96d31174d696
-                Name: ZombieCharacter
+        -   Entity:
+                Id: a52a7c4a-9cf2-47f3-9028-607ad77f263f
+                Name*: ZombieCharacter_00
                 Components:
                     b296752080481e41b569d385767428ce: !TransformComponent
-                        Id: 07230cd9-64f0-4f7d-8296-b62c193bc125
-                        Position: {X: -12.379068, Y: 0.1, Z: 5.0}
+                        Id: b32df02a-461d-4367-b761-3d28f57b7e3c
+                        Position*: {X: -14.870518, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
-                            1245d3c0d097e44e8295e28dad432562: ref!! 03636b1d-7b6a-4470-b32b-4e4849b1e33b
+                            1245d3c0d097e44e8295e28dad432562: ref!! f1ddb92f-4ac5-4fe2-b4c9-ea3d2d581f2f
                     b978a0332590234b9f3a3537f50e75ae: !CharacterComponent
-                        Id: 9cc828d7-fb17-4822-93a8-fca4b36a919e
+                        Id: 05318539-764f-4f59-b758-2d1b6265fc08
                         CollisionGroup: KinematicFilter
                         CanSleep: false
                         Restitution: 0.0
@@ -5157,25 +5140,41 @@ Hierarchy:
                                 LocalOffset: {X: 0.0, Y: 0.95, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                     908eca909da271d9acd3b08f575467c2: !CharacterMovement
-                        Id: 357ffacf-aaab-4e2c-90f9-193517f74d19
+                        Id: 5ebd6a3d-5b68-4cf6-9936-0ff24637b8c4
                         MovementSpeed: 2.0
-                    ea96b6edb57c16d2e9e144bbbfa49cb5: !FollowerComponent
-                        Id: f6877d78-7eea-4c70-8673-9c4fa28649e6
-                        Target: ref!! 5fc52dcf-f9f8-4c6d-b32d-3fc989aea8ad
-                        Enabled: true
-                    a441932b9c38c50aea1b577cbc1dd80c: !NavigationComponent
-                        Id: cbf2a29f-00fe-4a21-b033-bc270fdb35e3
-                        NavigationMesh: 91579344-5620-4654-990e-1a6907b9d3d9:NavigationMesh
-                        GroupId: ed9e2c12-4403-40dd-a4d5-c22c7a0a3612
                     4b51048e91e83e5e066f1315d321e413: !CharacterInteraction
-                        Id: 7e2c71da-1402-4cb6-b3e3-d3a016caee86
-                    6542802399c6ed92fb766d475c1c2709: !CharacterPunch
-                        Id: 0a1c86dd-1809-48e2-9547-5013b9e5db67
-                        InteractionSource: !RigidbodyComponent ref!! 5de63365-f8c3-4a32-a1e3-a4f34b52f8bc
+                        Id: 80463bcd-9918-40b3-9648-398f8c576830
                     13aea0aebd4455102f8055c4b4d21c07: !CharacterStats
-                        Id: 7225f866-9696-462a-8c8c-95cc62e4d157
+                        Id: 5b551615-6e78-4243-ad32-6e034ff4a4a2
                         Health: 1
                         MaxHealth: 1
+                    1b039712e7b9ec7e0c376d8aa0a96aac: !NavigationComponent
+                        Id: c9bcc70f-1363-4f59-87dd-71f8d46949bc
+                        NavigationMesh: 91579344-5620-4654-990e-1a6907b9d3d9:NavigationMesh
+                        GroupId: ed9e2c12-4403-40dd-a4d5-c22c7a0a3612
+                    914358113dc36caf58b50f2b587a9295: !CharacterPunch
+                        Id: eab7c1f1-4443-4c0f-b3c2-c242ca49a1f0
+                        InteractionSource: !RigidbodyComponent ref!! 344a6028-d2f6-442c-844a-83512330c15e
+                    0978abe812dbbfd6969c60617f73202d*: !FollowerComponent
+                        Id: f121636d-64f2-471f-b3dd-5506a0c8fbd9
+                        Target: ref!! c4992244-fec7-427d-b399-bc6d5cfbb59e
+                        Enabled: true
+            Base:
+                BasePartAsset: d8bc40c2-0e84-497e-a44b-fea8fb69975e:Characters/ZombieCharacter
+                BasePartId: 360ce930-50a4-42d6-b739-ac6f2005b2b1
+                InstanceId: aabbe27e-1217-4d53-864b-c26491706cf1
+        -   Folder: Complex
+            Entity:
+                Id: a64c0c6e-a688-4a61-b889-9c8925a11157
+                Name: Wall0x2x2Window
+                Components:
+                    04b9812a7f20ce4486c686110d3172ad: !TransformComponent
+                        Id: 7f522506-fb54-4380-8f7a-3ee15d41e07a
+                        Position: {X: -9.0, Y: 0.0, Z: -5.0}
+                        Rotation: {X: 0.0, Y: 0.70710677, Z: 0.0, W: 0.70710677}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            9bd6c2826922c24ba23d41e3a7a958f6: ref!! 82c2d69b-2269-4bc2-a23d-41e3a7a958f6
         -   Entity:
                 Id: a6a58bf2-0f1b-413b-bab2-0975547fbfb1
                 Name: Wall0x2x5 (4)
@@ -5199,43 +5198,6 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             4eecb3c27affe3478bcc584553d59e41: ref!! 4451ee48-5587-4a2c-82b5-47104c29000f
-        -   Entity:
-                Id: a7564c4c-7704-4354-a353-9207a2232954
-                Name: CameraTarget
-                Components:
-                    39d4bdb202782a41869f2a6d53da4edf: !TransformComponent
-                        Id: b2bdd439-7802-412a-869f-2a6d53da4edf
-                        Position: {X: 0.0, Y: 1.65, Z: 0.0}
-                        Rotation: {X: -0.16715722, Y: -0.55716187, Z: -0.115674, W: 0.8051389}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children:
-                            a116d811cab5bf4da5211050e1d34e10: ref!! 11d816a1-b5ca-4dbf-a521-1050e1d34e10
-        -   Entity:
-                Id: a7b68422-0fb4-45c9-b853-8e17a08a3953
-                Name: Camera
-                Components:
-                    a116d811cab5bf4da5211050e1d34e10: !TransformComponent
-                        Id: 11d816a1-b5ca-4dbf-a521-1050e1d34e10
-                        Position: {X: 0.0, Y: 0.0, Z: 5.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    1fb7d1656248fc4eb7c13c9d933979c7: !CameraComponent
-                        Id: 65d1b71f-4862-4efc-b7c1-3c9d933979c7
-                        Name: null
-                        Projection: Perspective
-                        Slot: 9aeac611-d1f6-46da-a235-e20cc154e170
-                    cffbc9ddf95f8544a284e04ea2d27d8a: !RiseOfTheUndeaf.Camera.ThirdPersonCamera,RiseOfTheUndeaf.Game
-                        Id: ddc9fbcf-5ff9-4485-a284-e04ea2d27d8a
-                        DefaultDistance: 6.0
-                        MinimumDistance: 0.4
-                        ConeRadius: 1.25
-                        InvertX: false
-                        MinVerticalAngle: -20.0
-                        MaxVerticalAngle: 70.0
-                        InvertY: false
-                        RotationSpeed: 360.0
-                        VerticalSpeed: 45.0
         -   Entity:
                 Id: aab47dbd-67b9-4755-9732-7bd90cf990ad
                 Name: Wall0x2x5
@@ -5506,43 +5468,6 @@ Hierarchy:
                 BasePartAsset: ac1061e0-5a9c-4368-ae4a-ba4ab63eb179:BlocksPrefabs/Wall0x2x5Window
                 BasePartId: 2afada92-6bdd-43d2-9806-ce0629937081
                 InstanceId: 8ec0d5c5-e187-4737-81f5-f8bef34ac1f5
-        -   Entity:
-                Id: b321a062-2c9c-4602-b0ee-c0c0360c2a20
-                Name: InteractionSource
-                Components:
-                    67f103e6866dca9be1f620fac22067ac: !TransformComponent
-                        Id: 03627a57-c156-4e7d-9316-05b6d9698b34
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    4b748420c6762f263651ca14c48cd707: !RigidbodyComponent
-                        Id: 5de63365-f8c3-4a32-a1e3-a4f34b52f8bc
-                        CollisionGroup: SensorTrigger
-                        CanCollideWith: KinematicFilter
-                        CanSleep: false
-                        Restitution: 0.0
-                        Friction: 0.5
-                        RollingFriction: 0.0
-                        CcdMotionThreshold: 0.0
-                        CcdSweptSphereRadius: 0.0
-                        IsTrigger: true
-                        IsKinematic: true
-                        Mass: 1.0
-                        LinearDamping: 0.0
-                        AngularDamping: 0.0
-                        OverrideGravity: false
-                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
-                        NodeName: null
-                        ColliderShapes:
-                            31b14662ac92f065d7b21526fd8cdd5e: !CapsuleColliderShapeDesc
-                                Length: 0.1
-                                Radius: 0.4
-                                LocalOffset: {X: 0.0, Y: 1.0, Z: 0.2}
-                                LocalRotation: {X: 0.70710677, Y: 0.0, Z: 0.0, W: 0.70710677}
-                    109aa629b38746fa91eb2a6683a81457: !RiseOfTheUndeaf.Character.CharacterInteractionSource,RiseOfTheUndeaf.Game
-                        Id: 6f7ad905-105c-40a9-90eb-41212899f8e9
-                        InteractionParent: ref!! 7e2c71da-1402-4cb6-b3e3-d3a016caee86
         -   Entity:
                 Id: b4d7e451-80b1-4fd1-9427-b0b5ed622c7e
                 Name: Floor2x0x1
@@ -5932,6 +5857,47 @@ Hierarchy:
                 BasePartAsset: 80a8baf2-8622-45d1-88a3-0b4aec26af0c:BlocksPrefabs/Floor2x0x1
                 BasePartId: b7b381ac-aac8-4c5b-8eba-7aabe138ee6f
                 InstanceId: c7bcc59d-5268-4f95-a42b-889e9ad33865
+        -   Entity:
+                Id: ba5507a4-c6b3-4cd9-9747-f120f9c57a0e
+                Name: InteractionSource
+                Components:
+                    67f103e6866dca9be1f620fac22067ac: !TransformComponent
+                        Id: a2ad1f1c-0744-445c-b503-bcbc9123639e
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    4b748420c6762f263651ca14c48cd707: !RigidbodyComponent
+                        Id: 344a6028-d2f6-442c-844a-83512330c15e
+                        CollisionGroup: SensorTrigger
+                        CanCollideWith: KinematicFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: true
+                        IsKinematic: true
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            31b14662ac92f065d7b21526fd8cdd5e: !CapsuleColliderShapeDesc
+                                Length: 0.1
+                                Radius: 0.4
+                                LocalOffset: {X: 0.0, Y: 1.0, Z: 0.2}
+                                LocalRotation: {X: 0.70710677, Y: 0.0, Z: 0.0, W: 0.70710677}
+                    109aa629b38746fa91eb2a6683a81457: !RiseOfTheUndeaf.Character.CharacterInteractionSource,RiseOfTheUndeaf.Game
+                        Id: 4872b1e1-c211-4cb8-9d35-f00893f19aef
+                        InteractionParent*: ref!! 80463bcd-9918-40b3-9648-398f8c576830
+            Base:
+                BasePartAsset: d8bc40c2-0e84-497e-a44b-fea8fb69975e:Characters/ZombieCharacter
+                BasePartId: 4e1b66a7-3444-4a71-81e5-47b52035572d
+                InstanceId: aabbe27e-1217-4d53-864b-c26491706cf1
         -   Entity:
                 Id: babde550-b20a-4b47-ab6d-734d481a26ca
                 Name: Table2x2x2
@@ -6441,6 +6407,90 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             db07bec9b88cb84e9f8d6d3511eb10f2: ref!! 91c8c130-40c7-4faa-878f-8974bf5dddce
+        -   Entity:
+                Id: c4992244-fec7-427d-b399-bc6d5cfbb59e
+                Name: PlayerCharacter
+                Components:
+                    b296752080481e41b569d385767428ce: !TransformComponent
+                        Id: d39e8fae-a007-46be-9330-ca3439a44dd4
+                        Position*: {X: -5.233161, Y: 0.0, Z: 4.294324}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            1245d3c0d097e44e8295e28dad432562: ref!! 63272323-4b5e-439d-a1cd-a9a90f6a6625
+                            3603b3880cb090e7cdf3d6c19c76a7a7: ref!! de6751ce-8508-4ec8-8d3a-6e141535700b
+                    b978a0332590234b9f3a3537f50e75ae: !CharacterComponent
+                        Id: 501d45c8-4e23-4441-93f8-615912834bff
+                        CollisionGroup: KinematicFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        FallSpeed: 10.0
+                        MaxSlope: {Radians: 0.7853982}
+                        JumpSpeed: 13.0
+                        Gravity: {X: 0.0, Y: -40.0, Z: 0.0}
+                        ColliderShapes:
+                            56a5239435c0e54188f913fd5d2f5dee: !CapsuleColliderShapeDesc
+                                Length: 1.2
+                                Radius: 0.4
+                                LocalOffset: {X: 0.0, Y: 0.95, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    908eca909da271d9acd3b08f575467c2: !CharacterMovement
+                        Id: 4baf0a71-0aa1-4416-9fa5-15a47467be9a
+                        MovementSpeed: 8.5
+                    4b51048e91e83e5e066f1315d321e413: !CharacterInteraction
+                        Id: 5d3576df-b982-43f1-8d1c-ce2446160f2e
+                    e9e6c8edee205ad44c0ccd04b7816d7b: !RiseOfTheUndeaf.Player.PlayerInput,RiseOfTheUndeaf.Game
+                        Id: 13b8521f-9be9-4755-86fe-4fcafc5e4d8b
+                        Camera: ref!! 7adc3334-849b-464e-8037-fc9953b18d2a
+                        InputSettings:
+                            JoystickDeadZone: 0.25
+                            MouseSensitivity: 80.0
+                            InvertMouseX: false
+                            InvertMouseY: false
+                            ButtonBindings:
+                                23e5d3f889ba38a7016282a52c54c030~MovementHorizontal:
+                                    e3782cf756e2a990ed8b582539804157: !RiseOfTheUndeaf.Input.Buttons.AxisFromButtons,RiseOfTheUndeaf.Game
+                                        NegativeButton: !RiseOfTheUndeaf.Input.Buttons.KeyboardButton,RiseOfTheUndeaf.Game
+                                            Button: A
+                                        PositiveButton: !RiseOfTheUndeaf.Input.Buttons.KeyboardButton,RiseOfTheUndeaf.Game
+                                            Button: D
+                                    d7f69b480bfecac2aa4746009b8e2238: !RiseOfTheUndeaf.Input.Buttons.GamePadAxis,RiseOfTheUndeaf.Game
+                                        Axis: LeftX
+                                ec8df745ea344f350bf9ecdf1c238fb4~MovementVertical:
+                                    64f485434ac0bb46b93dc2317af612a1: !RiseOfTheUndeaf.Input.Buttons.AxisFromButtons,RiseOfTheUndeaf.Game
+                                        NegativeButton: !RiseOfTheUndeaf.Input.Buttons.KeyboardButton,RiseOfTheUndeaf.Game
+                                            Button: S
+                                        PositiveButton: !RiseOfTheUndeaf.Input.Buttons.KeyboardButton,RiseOfTheUndeaf.Game
+                                            Button: W
+                                    3b9fb3ebfced6e774f786606ba6af6d9: !RiseOfTheUndeaf.Input.Buttons.GamePadAxis,RiseOfTheUndeaf.Game
+                                        Axis: LeftY
+                                69fe3d3eed4df4e81040ac4fb460d669~Jump:
+                                    b65fabbb1a928665685cc3ffd09fc8ba: !RiseOfTheUndeaf.Input.Buttons.KeyboardButton,RiseOfTheUndeaf.Game
+                                        Button: Space
+                                    5cdd57c977754a019caa4710b9e04c42: !RiseOfTheUndeaf.Input.Buttons.GamePadButton,RiseOfTheUndeaf.Game
+                                        Button: A
+                                354966735bcd499623f002f0c03431df~CameraHorizontal:
+                                    f011ff88b619178484d0f35372b0e02f: !RiseOfTheUndeaf.Input.Buttons.GamePadAxis,RiseOfTheUndeaf.Game
+                                        Axis: RightX
+                                    93869d0c47f2b795e5c2db8dbfbc7222: !RiseOfTheUndeaf.Input.Buttons.Mouse,RiseOfTheUndeaf.Game
+                                        Action: DeltaX
+                                7273e2f3bc6e822d6e396d33d06b3402~CameraVertical:
+                                    10eb2d00db35d149357c564db2238458: !RiseOfTheUndeaf.Input.Buttons.GamePadAxis,RiseOfTheUndeaf.Game
+                                        Axis: RightY
+                                    cdedf925dd1efd227b97eb7a235d08ab: !RiseOfTheUndeaf.Input.Buttons.Mouse,RiseOfTheUndeaf.Game
+                                        Action: DeltaY
+                    13aea0aebd4455102f8055c4b4d21c07: !CharacterStats
+                        Id: ca75c9f5-d03e-4389-977d-32a659a48d90
+                        Health: 5
+                        MaxHealth: 5
+            Base:
+                BasePartAsset: 1b21e7e0-fe6d-4212-a039-c517bd202000:Characters/PlayerCharacter
+                BasePartId: 5afa0b27-9ad5-4b9e-bd83-28a7354629c5
+                InstanceId: fe45575d-985e-4964-81c4-ca33a2655757
         -   Folder: Complex
             Entity:
                 Id: c58ce3b1-05ef-4414-9fdf-474e42deb8e5
@@ -6464,6 +6514,47 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             c444819e77a60441a6144bd7bd8a4a23: ref!! 70c962e6-0f52-490a-aff0-83d62aaadc1f
+        -   Entity:
+                Id: c62993e2-3a37-4dd6-a0d2-b5a4bbe2906c
+                Name: InteractionSource
+                Components:
+                    67f103e6866dca9be1f620fac22067ac: !TransformComponent
+                        Id: 29f5147a-d34c-4ebb-8c55-aad2ef2837d7
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    4b748420c6762f263651ca14c48cd707: !RigidbodyComponent
+                        Id: 9cbe0e19-f38e-43c0-9f6e-63ab5ed5a065
+                        CollisionGroup: SensorTrigger
+                        CanCollideWith: KinematicFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: true
+                        IsKinematic: true
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            31b14662ac92f065d7b21526fd8cdd5e: !CapsuleColliderShapeDesc
+                                Length: 0.1
+                                Radius: 0.4
+                                LocalOffset: {X: 0.0, Y: 1.0, Z: 0.2}
+                                LocalRotation: {X: 0.70710677, Y: 0.0, Z: 0.0, W: 0.70710677}
+                    109aa629b38746fa91eb2a6683a81457: !RiseOfTheUndeaf.Character.CharacterInteractionSource,RiseOfTheUndeaf.Game
+                        Id: c3d57080-d9c5-414d-8fc9-7360b365451a
+                        InteractionParent*: ref!! 5d3576df-b982-43f1-8d1c-ce2446160f2e
+            Base:
+                BasePartAsset: 1b21e7e0-fe6d-4212-a039-c517bd202000:Characters/PlayerCharacter
+                BasePartId: 0b0f7e39-85f8-4b30-a285-68d5ef6b3091
+                InstanceId: fe45575d-985e-4964-81c4-ca33a2655757
         -   Entity:
                 Id: c82d2cce-0495-4aab-9131-94e1704225bd
                 Name: Wall0x2x5
@@ -7102,6 +7193,21 @@ Hierarchy:
                                 Normal: {X: 1.0, Y: 0.0, Z: 0.0}
                                 Offset: 0.0
         -   Entity:
+                Id: e8a9a6d1-4b29-4c10-9784-7480ccab29ab
+                Name: CameraTarget
+                Components:
+                    39d4bdb202782a41869f2a6d53da4edf: !TransformComponent
+                        Id: de6751ce-8508-4ec8-8d3a-6e141535700b
+                        Position: {X: 0.0, Y: 1.65, Z: 0.0}
+                        Rotation: {X: -0.16715722, Y: -0.55716187, Z: -0.115674, W: 0.8051389}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            a116d811cab5bf4da5211050e1d34e10: ref!! c9c6c994-df63-413b-b606-81e7f9f58476
+            Base:
+                BasePartAsset: 1b21e7e0-fe6d-4212-a039-c517bd202000:Characters/PlayerCharacter
+                BasePartId: 04270120-2ddf-4e39-83fe-10a8a45a88f4
+                InstanceId: fe45575d-985e-4964-81c4-ca33a2655757
+        -   Entity:
                 Id: e98cb0b8-2cd5-4b03-b25d-6a9fbed23516
                 Name: Wall0x2x5Window (3)
                 Components:
@@ -7472,37 +7578,6 @@ Hierarchy:
                 BasePartAsset: cddf415f-8971-4355-bca8-71e4822095ab:BlocksPrefabs/Gate2x3x1
                 BasePartId: 200881f5-5aa8-444c-976c-bbcbd86bce28
                 InstanceId: fbf971bc-83c4-4274-8e67-13fa260ef328
-        -   Entity:
-                Id: fa5325ba-78f1-40ba-8696-3f8bb00515bd
-                Name: CharacterModel
-                Components:
-                    1245d3c0d097e44e8295e28dad432562: !TransformComponent
-                        Id: 03636b1d-7b6a-4470-b32b-4e4849b1e33b
-                        Position: {X: 0.0, Y: 4.7683716E-07, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children:
-                            bf354290e659b5f12e84150c8ef71760: ref!! 03627a57-c156-4e7d-9316-05b6d9698b34
-                    0fa4902c57c2de428808e383912863ea: !ModelComponent
-                        Id: 7b8ea756-d17c-43d2-b192-4668222df973
-                        Model: b163aa75-5e15-485a-bb77-da42e1e03420:Models/mannequinModel
-                        Materials:
-                            d4c1f6ff361ccc5f3e8d807b0d98d96e~1: 52257376-bb55-473b-9688-d394c247864b:Materials/EmissiveRed
-                    978eabfaac453f4d9375495d32bc299f: !RiseOfTheUndeaf.Player.AnimationController,RiseOfTheUndeaf.Game
-                        Id: 69ef5b11-719f-4c6b-8694-93a590a518ea
-                        AnimationComponent: ref!! 57dc0c49-9c85-4cef-b1a9-2335e95db749
-                        AnimationIdle: 7084fe9f-6cca-4bee-89d4-766f4a4301cb:Animations/Idle
-                        AnimationWalk: d7d1fd79-1307-411a-8e19-38a119a84f8a:Animations/Walk
-                        AnimationRun: 66aeed58-aa8f-4b34-9525-6cc6b1f749f7:Animations/Run
-                        AnimationJumpStart: dc65b6a0-f550-45bb-87d8-722ea0d89979:Animations/Jump_Start
-                        AnimationJumpMid: 8b2ddf65-b7d2-4f36-a52e-adbc88f595c2:Animations/Jump_Loop
-                        AnimationJumpEnd: 70ffc2e6-156a-46c7-ad91-c2a23d10cb1f:Animations/Jump_End
-                        AnimationPunch: 764e5d68-4fd8-4008-ad61-f57b13caba89:Animations/Punch
-                        WalkThreshold: 0.25
-                        TimeFactor: 1.0
-                    5847b2c0adfcf347a100f94d96c5d325: !AnimationComponent
-                        Id: 57dc0c49-9c85-4cef-b1a9-2335e95db749
-                        Animations: {}
         -   Entity:
                 Id: fa5735ba-0a44-4fd3-ad19-6c5ba082823c
                 Name: Box2x1x1
