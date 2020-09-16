@@ -3,6 +3,8 @@ using Stride.Core.Annotations;
 using Stride.Core.Collections;
 using Stride.Core.Diagnostics;
 using Stride.Games;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace RiseOfTheUndeaf.GameEvents
 {
@@ -10,9 +12,14 @@ namespace RiseOfTheUndeaf.GameEvents
     {
         private FastCollection<GameEvent> eventLog = new FastCollection<GameEvent>();
         private int eventsProcessed = 0;
-        private FastCollection<GameEventListener> listeners = new FastCollection<GameEventListener>();
+        private HashSet<GameEventListener> listeners = new HashSet<GameEventListener>();
 
         private static ILogger logger = GlobalLogger.GetLogger(nameof(GameEventSystem));
+
+        static GameEventSystem()
+        {
+            (logger as Logger).ActivateLog(LogMessageType.Debug);
+        }
 
         public GameEventSystem([NotNull] IServiceRegistry registry) : base(registry)
         {
@@ -58,6 +65,11 @@ namespace RiseOfTheUndeaf.GameEvents
         {
             lock (listeners)
             {
+                // remove existing listener of the same type
+                var removed = listeners.Remove(listener);
+                if (removed)
+                    logger.Debug($"Removed existing listener: {listener.GetType().Name}.");
+
                 listeners.Add(listener);
                 logger.Debug($"New listener registered: {listener.GetType().Name}.");
             }
