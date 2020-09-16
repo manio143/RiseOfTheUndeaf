@@ -18,8 +18,7 @@ namespace RiseOfTheUndeaf.Character
         /// <summary>
         /// How fast should the character move (top speed).
         /// </summary>
-        [DefaultValue(10f)]
-        public float MovementSpeed { get; set; }
+        public float MovementSpeed { get; set; } = 10f;
 
         /// <summary>
         /// The direction this character was last moving in (see <see cref="CharacterMovementProcessor"/>).

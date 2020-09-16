@@ -86,6 +86,7 @@ Hierarchy:
         - ref!! 9e04c492-c9cd-4b66-a1de-d1feda0b9986
         - ref!! a52a7c4a-9cf2-47f3-9028-607ad77f263f
         - ref!! c4992244-fec7-427d-b399-bc6d5cfbb59e
+        - ref!! b5965c7e-473e-4b30-8769-41408841148d
     Parts:
         -   Entity:
                 Id: 003ea996-d3d5-46e1-8f7c-e934945032b4
@@ -4928,7 +4929,7 @@ Hierarchy:
                 InstanceId: de5b4e19-7f5a-4b9e-9c63-f9dd94b7a2c1
         -   Entity:
                 Id: 9e04c492-c9cd-4b66-a1de-d1feda0b9986
-                Name: DebugPhysicsShapes
+                Name: DebugTools
                 Components:
                     bdd889ab77f336a54b4448d4e3dc5f57: !TransformComponent
                         Id: b5faf5cf-b21c-4872-8886-b7b5f2afbfb1
@@ -4939,6 +4940,14 @@ Hierarchy:
                     d0a8c7bf70e30949675070044397c8cf: !RiseOfTheUndeaf.DebugPhysicsShapes,RiseOfTheUndeaf.Game
                         Id: bdb93771-5629-475d-b617-aead050508d4
                         RenderGroup: Group7
+                    a18da35360a91e428cf502d6eefe26b1: !RiseOfTheUndeaf.GameProfiler,RiseOfTheUndeaf.Game
+                        Id: b8aeabe2-4c37-4b7e-81d6-dd841599e9fb
+                        Enabled: false
+                        TextColor: {R: 144, G: 238, B: 144, A: 255}
+                        RefreshTime: 500.0
+                        SortingMode: ByTime
+                        FilteringMode: Fps
+                        ResultPage: 1
         -   Folder: null
             Entity:
                 Id: 9ea228dc-56eb-4674-ae8e-97d372096d01
@@ -5503,6 +5512,26 @@ Hierarchy:
                 BasePartAsset: 80a8baf2-8622-45d1-88a3-0b4aec26af0c:BlocksPrefabs/Floor2x0x1
                 BasePartId: b7b381ac-aac8-4c5b-8eba-7aabe138ee6f
                 InstanceId: 11296d07-d62c-4d7c-8d88-be8cbead3933
+        -   Entity:
+                Id: b5965c7e-473e-4b30-8769-41408841148d
+                Name: ZombieSpawner
+                Components:
+                    1cf93a16fbd45ed63a85834c10a0eb8e: !TransformComponent
+                        Id: d05a06ed-0d05-4c8d-9f8f-493e215af626
+                        Position: {X: 6.6382675, Y: 0.0, Z: 15.78852}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 0.4, Y: 0.7, Z: 0.8}
+                        Children: {}
+                    79c4c9ca08cdd595cd854473262f00cb: !ModelComponent
+                        Id: b3d3db3b-2134-4fb8-9d37-ef2506e172cb
+                        Model: 9f017db1-b690-461c-97b0-4435ee8db0e7:Models/Box2x1x1
+                        Materials:
+                            e73dc3eac1a60096a47a1a9fb61e5d78~0: fcebb731-f2a3-48dd-96a4-0680c2a880c2:Materials/GridMTHazard
+                    478f5d05c5210ab4b6a51e489a0e0770: !RiseOfTheUndeaf.EntityControllers.ZombieSpawner,RiseOfTheUndeaf.Game
+                        Id: 38cf1ed1-7286-4171-b37a-aea583ad034b
+                        SpawnRate: 12
+                        ZombiePrefab: d8bc40c2-0e84-497e-a44b-fea8fb69975e:Characters/ZombieCharacter
+                        PlayerCharacter: ref!! c4992244-fec7-427d-b399-bc6d5cfbb59e
         -   Entity:
                 Id: b61b981e-8b59-493d-b75f-7600cee7962b
                 Name: Wall0x2x5

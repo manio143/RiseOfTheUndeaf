@@ -107,6 +107,7 @@ Hierarchy:
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                     908eca909da271d9acd3b08f575467c2: !CharacterMovement
                         Id: cdc93216-6c1b-4541-9548-15fbec77397e
+                        MovementSpeed: 10.0
                     4b51048e91e83e5e066f1315d321e413: !CharacterInteraction
                         Id: ee06ca56-08cf-465c-93ef-13f51fdd98d2
                     13aea0aebd4455102f8055c4b4d21c07: !CharacterStats
