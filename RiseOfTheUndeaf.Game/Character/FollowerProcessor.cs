@@ -62,6 +62,14 @@ namespace RiseOfTheUndeaf.Character
 
                 if (direction.Length() > 1)
                     direction.Normalize();
+
+                // lower bound for velocity so that the character doesn't slow down heavily
+                // as they approach their target
+                if (direction.Length() < 0.5)
+                {
+                    direction.Normalize();
+                    direction *= 0.5f;
+                }
                 follower.Entity.BroadcastEvent<IMovementEvents>().Move(direction);
             }
         }
@@ -75,7 +83,7 @@ namespace RiseOfTheUndeaf.Character
 
                 if (pathList.Count > 1)
                 {
-                    if ((nextTarget - sourcePosition).Length() > 0.01f)
+                    if ((nextTarget - sourcePosition).Length() > 0.05f)
                         return nextTarget;
                 }
                 else
