@@ -58,7 +58,7 @@ namespace RiseOfTheUndeaf.Character
                         gameEventSystem.Log(new PunchEvent(punchComponent.Entity));
                         foreach (var collision in punchComponent.InteractionSource.Collisions)
                         {
-                            var otherEntity = collision.ColliderA.Entity == punchComponent.Entity
+                            var otherEntity = collision.ColliderA.Entity.Get<CharacterInteractionSource>() != null
                                 ? collision.ColliderB.Entity
                                 : collision.ColliderA.Entity;
                             if (otherEntity.Name == "PlayerCharacter")
