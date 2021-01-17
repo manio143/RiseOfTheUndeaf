@@ -1952,6 +1952,7 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             6753046f4673a97086033eb761635eda: ref!! 29f5147a-d34c-4ebb-8c55-aad2ef2837d7
+                            d2579b17cbca4a99b4dd04e2ad2a388f: ref!! a6fcc41c-7077-485f-8260-99a4d9f339ca
                     0fa4902c57c2de428808e383912863ea: !ModelComponent
                         Id: 9cd207ee-e775-44d4-b9f8-561978e2d5ca
                         Model: b163aa75-5e15-485a-bb77-da42e1e03420:Models/mannequinModel
@@ -6526,7 +6527,12 @@ Hierarchy:
                         Id: eb820878-4467-4969-a29f-1ac1a372b946
                         CanExecute: true
                         PrimaryHandler: null
-                        SecondaryHandler: null
+                        SecondaryHandler*: !RiseOfTheUndeaf.Weapons.BulletShot,RiseOfTheUndeaf.Game
+                            InitialForce: 200.0
+                            ReloadTime: 3.0
+                            Size: 0.1
+                            Model: 7bf6c9c7-f3c8-491c-8640-3a27ac5b8f6e:Models/BulletCube
+                            Camera: ref!! 7adc3334-849b-464e-8037-fc9953b18d2a
             Base:
                 BasePartAsset: 1b21e7e0-fe6d-4212-a039-c517bd202000:Characters/PlayerCharacter
                 BasePartId: 5afa0b27-9ad5-4b9e-bd83-28a7354629c5
@@ -7258,6 +7264,24 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             c444819e77a60441a6144bd7bd8a4a23: ref!! cee8a0fe-4ba6-44f7-8bcd-c0b8c31a9eec
+        -   Entity:
+                Id: eab1b348-2a4c-483c-b96c-beac1a4fb217
+                Name: Gun
+                Components:
+                    0ed3079673a420f57d8299e24c3ea113: !TransformComponent
+                        Id: a6fcc41c-7077-485f-8260-99a4d9f339ca
+                        Position: {X: -0.334875, Y: 1.0527917, Z: -0.18720491}
+                        Rotation: {X: 0.0, Y: 0.70710677, Z: 0.0, W: 0.70710677}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    7fc247293991c1d1b39f964a1c93e57a: !ModelComponent
+                        Id: 8d6428f2-64ce-4110-bfb0-a2c9524fecad
+                        Model: 3353703c-4d4e-474a-9c4d-3a962ab7d9ae:Models/Air_Gun-FBX 7.4
+                        Materials: {}
+            Base:
+                BasePartAsset: 1b21e7e0-fe6d-4212-a039-c517bd202000:Characters/PlayerCharacter
+                BasePartId: 4db61a03-9a2c-42c0-99b9-e4f642f34282
+                InstanceId: fe45575d-985e-4964-81c4-ca33a2655757
         -   Entity:
                 Id: ef0dba52-533d-4cd2-8d7b-ab4438cdd900
                 Name: Stairs1x1x2

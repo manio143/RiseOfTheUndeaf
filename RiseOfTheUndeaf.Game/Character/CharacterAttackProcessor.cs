@@ -32,7 +32,8 @@ namespace RiseOfTheUndeaf.Character
                     {
                         scriptSystem.AddTask(async () => await component.PrimaryHandler.ExecuteAttack(
                             component.Entity,
-                            (bool canExecute) => component.CanExecute = canExecute));
+                            (bool canExecute) => component.CanExecute = canExecute,
+                            Services));
                     }
 
                     gameEventSystem.Log(new PrimaryAttackEvent(component.Entity));
@@ -43,7 +44,8 @@ namespace RiseOfTheUndeaf.Character
                     {
                         scriptSystem.AddTask(async () => await component.SecondaryHandler.ExecuteAttack(
                             component.Entity,
-                            (bool canExecute) => component.CanExecute = canExecute));
+                            (bool canExecute) => component.CanExecute = canExecute,
+                            Services));
                     }
 
                     gameEventSystem.Log(new SecondaryAttackEvent(component.Entity));

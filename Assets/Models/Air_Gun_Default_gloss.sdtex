@@ -1,0 +1,8 @@
+!Texture
+Id: 895b254d-497e-4bd9-894a-aafadeb988cd
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../Resources/Weapons/Models/Air_Gun_Default_gloss.jpg
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
+    PremultiplyAlpha: false

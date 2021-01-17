@@ -1,0 +1,11 @@
+!Skeleton
+Id: b1884344-3e37-4374-99ae-b13362f7da37
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../Resources/Weapons/Models/Air_Gun-FBX 7.4.fbx
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Nodes:
+    c745b5a5714c4ec15ddda4e32245d85a: {Name: RootNode, Depth: 0}
+    120ff7ba58243f5a42d060a5db975b01: {Name: Air_Gun, Depth: 1}
+~SourceHashes:
+    def95ebbe94aca49bdf0537cd7362400~../../Resources/Weapons/Models/Air_Gun-FBX 7.4.fbx: 27dbb97eb22f9f7b3fdb5165bba165fb

@@ -59,6 +59,20 @@ Hierarchy:
                 BasePartId: 05130ee6-6675-42ba-96b0-9e5bdcba5345
                 InstanceId: 5a0813e7-58e5-4fad-8707-2b651ab9bfc8
         -   Entity:
+                Id: 4db61a03-9a2c-42c0-99b9-e4f642f34282
+                Name: Gun
+                Components:
+                    0ed3079673a420f57d8299e24c3ea113: !TransformComponent
+                        Id: 68c5c806-890f-4ff7-bba4-527251194071
+                        Position: {X: -0.334875, Y: 1.0527917, Z: -0.18720491}
+                        Rotation: {X: 0.0, Y: 0.70710677, Z: 0.0, W: 0.70710677}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    7fc247293991c1d1b39f964a1c93e57a: !ModelComponent
+                        Id: 51007037-181b-4b04-ab06-47e5300cfc14
+                        Model: 3353703c-4d4e-474a-9c4d-3a962ab7d9ae:Models/Air_Gun-FBX 7.4
+                        Materials: {}
+        -   Entity:
                 Id: 5afa0b27-9ad5-4b9e-bd83-28a7354629c5
                 Name*: PlayerCharacter
                 Components:
@@ -165,6 +179,7 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             6753046f4673a97086033eb761635eda: ref!! 11d05282-a626-4416-9ed3-061b2a9f1e8a
+                            381c98690ac9676e885401d52474a947: ref!! 68c5c806-890f-4ff7-bba4-527251194071
                     0fa4902c57c2de428808e383912863ea: !ModelComponent
                         Id: 41c22b38-bd69-4a44-92a3-ee7c092f5298
                         Model: b163aa75-5e15-485a-bb77-da42e1e03420:Models/mannequinModel

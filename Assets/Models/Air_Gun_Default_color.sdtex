@@ -1,0 +1,8 @@
+!Texture
+Id: 1cc1cae7-4910-4ab0-a4ff-562d3ddedd77
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../Resources/Weapons/Models/Air_Gun_Default_color.png.002.jpg
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
+    PremultiplyAlpha: false

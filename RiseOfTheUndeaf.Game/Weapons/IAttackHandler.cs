@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Stride.Core;
 using Stride.Engine;
 
 namespace RiseOfTheUndeaf.Weapons
@@ -12,6 +13,6 @@ namespace RiseOfTheUndeaf.Weapons
         /// </summary>
         /// <param name="executor">Entity which executes the attack.</param>
         /// <param name="canExecute">Callback to block attack execution on the calling component.</param>
-        Task ExecuteAttack(Entity executor, Action<bool> canExecute);
+        Task ExecuteAttack(Entity executor, Action<bool> canExecute, IServiceRegistry services);
     }
 }
