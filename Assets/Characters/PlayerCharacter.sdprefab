@@ -134,10 +134,21 @@ Hierarchy:
                                         Axis: RightY
                                     cdedf925dd1efd227b97eb7a235d08ab: !RiseOfTheUndeaf.Input.Buttons.Mouse,RiseOfTheUndeaf.Game
                                         Action: DeltaY
+                                d8c84c1e382f90044e1f7d8098f5b0cd~PrimaryAttack:
+                                    faf560e00b91ce94dd14920cfd77e155: !RiseOfTheUndeaf.Input.Buttons.Mouse,RiseOfTheUndeaf.Game
+                                        Action: Left
+                                47134785bff01510c92bc404d2224b4d~SecondaryAttack:
+                                    a7dd15ec0a4956ede17850177a268336: !RiseOfTheUndeaf.Input.Buttons.Mouse,RiseOfTheUndeaf.Game
+                                        Action: Right
                     13aea0aebd4455102f8055c4b4d21c07: !CharacterStats
                         Id: 8a29cf6b-168b-49ba-b3cf-735453d3c697
                         Health*: 5
                         MaxHealth*: 5
+                    d767382ea99d81b298f612b3eec0b201*: !RiseOfTheUndeaf.Character.CharacterAttackComponent,RiseOfTheUndeaf.Game
+                        Id: 7e5a9a64-82bb-4849-99ba-2d827ef6e982
+                        CanExecute: true
+                        PrimaryHandler: null
+                        SecondaryHandler: null
             Base:
                 BasePartAsset: 1562de5e-b1b0-4cc3-966a-a53dcb0399a4:Characters/CharacterPrefab
                 BasePartId: 6ffe5b3d-7766-4609-972a-b599226c901c

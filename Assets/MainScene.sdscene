@@ -5529,7 +5529,7 @@ Hierarchy:
                             e73dc3eac1a60096a47a1a9fb61e5d78~0: fcebb731-f2a3-48dd-96a4-0680c2a880c2:Materials/GridMTHazard
                     478f5d05c5210ab4b6a51e489a0e0770: !RiseOfTheUndeaf.EntityControllers.ZombieSpawner,RiseOfTheUndeaf.Game
                         Id: 38cf1ed1-7286-4171-b37a-aea583ad034b
-                        SpawnRate: 12
+                        SpawnRate: 12.0
                         ZombiePrefab: d8bc40c2-0e84-497e-a44b-fea8fb69975e:Characters/ZombieCharacter
                         PlayerCharacter: ref!! c4992244-fec7-427d-b399-bc6d5cfbb59e
         -   Entity:
@@ -6512,10 +6512,21 @@ Hierarchy:
                                         Axis: RightY
                                     cdedf925dd1efd227b97eb7a235d08ab: !RiseOfTheUndeaf.Input.Buttons.Mouse,RiseOfTheUndeaf.Game
                                         Action: DeltaY
+                                d8c84c1e382f90044e1f7d8098f5b0cd~PrimaryAttack:
+                                    faf560e00b91ce94dd14920cfd77e155: !RiseOfTheUndeaf.Input.Buttons.Mouse,RiseOfTheUndeaf.Game
+                                        Action: Left
+                                47134785bff01510c92bc404d2224b4d~SecondaryAttack:
+                                    a7dd15ec0a4956ede17850177a268336: !RiseOfTheUndeaf.Input.Buttons.Mouse,RiseOfTheUndeaf.Game
+                                        Action: Right
                     13aea0aebd4455102f8055c4b4d21c07: !CharacterStats
                         Id: ca75c9f5-d03e-4389-977d-32a659a48d90
                         Health: 5
                         MaxHealth: 5
+                    d767382ea99d81b298f612b3eec0b201: !RiseOfTheUndeaf.Character.CharacterAttackComponent,RiseOfTheUndeaf.Game
+                        Id: eb820878-4467-4969-a29f-1ac1a372b946
+                        CanExecute: true
+                        PrimaryHandler: null
+                        SecondaryHandler: null
             Base:
                 BasePartAsset: 1b21e7e0-fe6d-4212-a039-c517bd202000:Characters/PlayerCharacter
                 BasePartId: 5afa0b27-9ad5-4b9e-bd83-28a7354629c5

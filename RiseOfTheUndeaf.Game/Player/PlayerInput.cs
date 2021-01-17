@@ -31,6 +31,7 @@ namespace RiseOfTheUndeaf.Player
             UpdateCharacterMovement();
             UpdateCameraRotation();
             UpdateJumpAction();
+            UpdateAttack();
         }
 
         private void UpdateJumpAction()
@@ -113,6 +114,19 @@ namespace RiseOfTheUndeaf.Player
             worldSpeed *= moveLength;
 
             Entity.BroadcastEvent<IMovementEvents>().Move(worldSpeed);
+        }
+
+        private void UpdateAttack()
+        {
+            if (Input.GetVirtualButton(0, GameButton.PrimaryAttack) > 0)
+            {
+                Entity.BroadcastEvent<IAttackEvents>().PrimaryAttack();
+            }
+
+            if (Input.GetVirtualButton(0, GameButton.SecondaryAttack) > 0)
+            {
+                Entity.BroadcastEvent<IAttackEvents>().SecondaryAttack();
+            }
         }
     }
 }

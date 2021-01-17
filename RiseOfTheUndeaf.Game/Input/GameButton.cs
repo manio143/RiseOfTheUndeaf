@@ -27,5 +27,15 @@
         /// Character jump.
         /// </summary>
         Jump = 5,
+
+        /// <summary>
+        /// Execute primary attack for the held weapon.
+        /// </summary>
+        PrimaryAttack = 6,
+
+        /// <summary>
+        /// Execute secondary attack for the held weapon.
+        /// </summary>
+        SecondaryAttack = 7,
     }
 }
