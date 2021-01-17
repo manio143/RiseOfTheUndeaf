@@ -1,0 +1,7 @@
+!Texture
+Id: 9e162df6-d809-4e30-a979-37eee7a5c8a2
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../Resources/Textures/crosshair.png
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}

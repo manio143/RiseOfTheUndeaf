@@ -23,7 +23,16 @@ namespace RiseOfTheUndeaf.Character
         public IAttackHandler PrimaryHandler { get; set; }
         public IAttackHandler SecondaryHandler { get; set; }
 
-        public void PrimaryAttack() => State = AttackState.Primary;
-        public void SecondaryAttack() => State = AttackState.Secondary;
+        public void PrimaryAttack()
+        {
+            if (CanExecute)
+                State = AttackState.Primary;
+        }
+
+        public void SecondaryAttack()
+        {
+            if (CanExecute)
+                State = AttackState.Secondary;
+        }
     }
 }

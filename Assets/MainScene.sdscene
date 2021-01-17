@@ -87,6 +87,7 @@ Hierarchy:
         - ref!! a52a7c4a-9cf2-47f3-9028-607ad77f263f
         - ref!! c4992244-fec7-427d-b399-bc6d5cfbb59e
         - ref!! b5965c7e-473e-4b30-8769-41408841148d
+        - ref!! 6e957bf7-10de-46cb-9eb3-1083b38a2a27
     Parts:
         -   Entity:
                 Id: 003ea996-d3d5-46e1-8f7c-e934945032b4
@@ -3342,6 +3343,21 @@ Hierarchy:
                 BasePartAsset: 189c3e0f-e96f-454c-8fb4-aed6010e5a32:BlocksPrefabs/Floor1x0x1
                 BasePartId: 69eeb2f5-cf60-4018-8efd-3e4352e1779d
                 InstanceId: 3c77551c-7a77-4e7b-abe0-1e0123a1156f
+        -   Entity:
+                Id: 6e957bf7-10de-46cb-9eb3-1083b38a2a27
+                Name: Crosshair
+                Components:
+                    730bc397856ab5d9df6b355271faacc3: !TransformComponent
+                        Id: 86e9c53d-e11d-4f19-9520-3798c442a917
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    76fc3c5b5c1c92e2d5cd47f7405d0615: !UIComponent
+                        Id: 1ca8d51b-7ca5-47b2-a5a6-ace1dc85c7b4
+                        Page: 1109a95e-e894-4825-a4e8-ff1f7c97a87a:UI/Crosshair
+                        Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+                        Size: {X: 1.28, Y: 0.72, Z: 1.0}
         -   Folder: Complex
             Entity:
                 Id: 6eb936a1-6346-4c23-b33b-dac689838fac

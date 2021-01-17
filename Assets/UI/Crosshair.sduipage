@@ -1,0 +1,26 @@
+!UIPageAsset
+Id: 1109a95e-e894-4825-a4e8-ff1f7c97a87a
+SerializedVersion: {Stride: 2.1.0.1}
+Tags: []
+Design:
+    Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+Hierarchy:
+    RootParts:
+        - !ImageElement ref!! 899d0efd-19cb-4da1-ba52-23fd10c0535f
+    Parts:
+        -   UIElement: !ImageElement
+                Id: 899d0efd-19cb-4da1-ba52-23fd10c0535f
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Width: 32.0
+                Height: 32.0
+                HorizontalAlignment: Center
+                VerticalAlignment: Center
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Source: !SpriteFromTexture
+                    Texture: 9e162df6-d809-4e30-a979-37eee7a5c8a2:Textures/crosshair
+                    Center: {X: 0.0, Y: 0.0}
+                Color: {R: 255, G: 255, B: 255, A: 255}
