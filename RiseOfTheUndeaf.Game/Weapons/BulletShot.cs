@@ -64,6 +64,8 @@ namespace RiseOfTheUndeaf.Weapons
             var model = projectile.GetOrCreate<ModelComponent>();
             model.Model = Model;
 
+            projectile.Add(new BulletHitScript());
+
             executor.Scene.Entities.Add(projectile);
 
             rigidBody.ApplyForce(direction * InitialForce);

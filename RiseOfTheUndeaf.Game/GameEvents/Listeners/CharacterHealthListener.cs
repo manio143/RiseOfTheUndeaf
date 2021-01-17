@@ -20,7 +20,8 @@ namespace RiseOfTheUndeaf.GameEvents.Listeners
                 }
                 else
                 {
-                    // TODO: handle zombie death
+                    // TODO: make this more customizable
+                    healthChange.Context.Character.Scene.Entities.Remove(healthChange.Context.Character);
                 }
             }
         }

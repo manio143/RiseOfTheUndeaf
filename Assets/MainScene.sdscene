@@ -6528,7 +6528,7 @@ Hierarchy:
                         CanExecute: true
                         PrimaryHandler: null
                         SecondaryHandler*: !RiseOfTheUndeaf.Weapons.BulletShot,RiseOfTheUndeaf.Game
-                            InitialForce: 200.0
+                            InitialForce: 250.0
                             ReloadTime: 3.0
                             Size: 0.1
                             Model: 7bf6c9c7-f3c8-491c-8640-3a27ac5b8f6e:Models/BulletCube
