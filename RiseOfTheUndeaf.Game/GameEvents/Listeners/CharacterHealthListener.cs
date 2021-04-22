@@ -1,11 +1,10 @@
-﻿using RiseOfTheUndeaf.GameEvents.Events.Character;
-using Stride.Core.Diagnostics;
+﻿using RiseOfTheUndeaf.Core.Logging;
+using RiseOfTheUndeaf.GameEvents.Events.Character;
 
 namespace RiseOfTheUndeaf.GameEvents.Listeners
 {
     public class CharacterHealthListener : GameEventListener
     {
-        private static ILogger logger = GlobalLogger.GetLogger(nameof(CharacterHealthListener));
         public override void ProcessEvent(GameEvent gameEvent)
         {
             var healthChange = gameEvent as HealthChangeEvent;
@@ -16,7 +15,7 @@ namespace RiseOfTheUndeaf.GameEvents.Listeners
             {
                 if (healthChange.Context.Character.Name == "PlayerCharacter")
                 {
-                    logger.Warning("Game over!"); // TODO: handle game over
+                    this.LogWarning("Game over!"); // TODO: handle game over
                 }
                 else
                 {

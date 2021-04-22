@@ -1,10 +1,9 @@
-﻿using Stride.Core;
+﻿using System.Collections.Generic;
+using RiseOfTheUndeaf.Core.Logging;
+using Stride.Core;
 using Stride.Core.Annotations;
 using Stride.Core.Collections;
-using Stride.Core.Diagnostics;
 using Stride.Games;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace RiseOfTheUndeaf.GameEvents
 {
@@ -14,17 +13,10 @@ namespace RiseOfTheUndeaf.GameEvents
         private int eventsProcessed = 0;
         private HashSet<GameEventListener> listeners = new HashSet<GameEventListener>();
 
-        private static ILogger logger = GlobalLogger.GetLogger(nameof(GameEventSystem));
-
-        static GameEventSystem()
-        {
-            (logger as Logger).ActivateLog(LogMessageType.Debug);
-        }
-
         public GameEventSystem([NotNull] IServiceRegistry registry) : base(registry)
         {
             Enabled = true; // required for Update to be called by GameSystemsCollection
-            logger.Debug("GameEventSystem has been created.");
+            this.LogDebug("GameEventSystem has been created.");
         }
 
         /// <inheritdoc/>
@@ -34,7 +26,7 @@ namespace RiseOfTheUndeaf.GameEvents
             {
                 var gameEvent = eventLog[eventsProcessed++];
 
-                logger.Info($"Processing event {gameEvent.GetType().Name} at {gameEvent.TimeStamp} => {gameEvent.ToLogString()}.");
+                this.LogInfo("Processing event {eventType} at {eventTime} => {eventMessage}.", gameEvent.GetType().Name, gameEvent.TimeStamp, gameEvent.ToLogString());
 
                 foreach (var listener in listeners)
                 {
@@ -53,7 +45,7 @@ namespace RiseOfTheUndeaf.GameEvents
             {
                 gameEvent.TimeStamp = Game.UpdateTime.Total;
                 eventLog.Add(gameEvent);
-                logger.Debug($"Logged new event: {gameEvent.GetType().Name}.");
+                this.LogDebug("Logged new event: {eventType}.", gameEvent.GetType().Name);
             }
         }
 
@@ -68,10 +60,10 @@ namespace RiseOfTheUndeaf.GameEvents
                 // remove existing listener of the same type
                 var removed = listeners.Remove(listener);
                 if (removed)
-                    logger.Debug($"Removed existing listener: {listener.GetType().Name}.");
+                    this.LogDebug("Removed existing listener: {listenerType}.", listener.GetType().Name);
 
                 listeners.Add(listener);
-                logger.Debug($"New listener registered: {listener.GetType().Name}.");
+                this.LogDebug("New listener registered: {listenerType}.", listener.GetType().Name);
             }
         }
 

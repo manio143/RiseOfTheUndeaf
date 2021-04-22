@@ -5,6 +5,7 @@ using System.Reflection.Emit;
 using System.Reflection;
 using System.Linq;
 using System.Collections;
+using RiseOfTheUndeaf.Core.Logging;
 
 namespace RiseOfTheUndeaf.EntityEvents
 {
@@ -68,6 +69,8 @@ namespace RiseOfTheUndeaf.EntityEvents
             {
                 return (TEvent)Activator.CreateInstance(instanceType, entity);
             }
+
+            Logger.LogDebug("Creating dynamic brodcaster for type {eventType}.", interfaceType.Name);
 
             EnsureDynamicModule();
 
@@ -264,5 +267,8 @@ namespace RiseOfTheUndeaf.EntityEvents
 
             il.Emit(OpCodes.Ret);
         }
+
+        private sealed class EntityEventExtensionLogger { }
+        private static EntityEventExtensionLogger Logger = new EntityEventExtensionLogger();
     }
 }

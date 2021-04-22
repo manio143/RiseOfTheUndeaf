@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
     <ApplicationIcon>Resources\Icon.ico</ApplicationIcon>
     <OutputType>WinExe</OutputType>
@@ -17,7 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\RiseOfTheUndeaf.Game\RiseOfTheUndeaf.Game.csproj" />
     <!-- Needed for custom runtime.json -->
-    <PackageReference Include="Stride" Version="4.0.0.1-beta04" PrivateAssets="contentfiles;analyzers" />
+    <PackageReference Include="Stride" Version="4.1.0.1-beta" PrivateAssets="contentfiles;analyzers" />
   </ItemGroup>
 
 </Project>

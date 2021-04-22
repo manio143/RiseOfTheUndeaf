@@ -1,8 +1,6 @@
-﻿using RiseOfTheUndeaf.GameEvents.Events.Character;
-using Stride.Core.Diagnostics;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
+using RiseOfTheUndeaf.Core.Logging;
+using RiseOfTheUndeaf.GameEvents.Events.Character;
 
 namespace RiseOfTheUndeaf.GameEvents.Listeners
 {
@@ -10,8 +8,6 @@ namespace RiseOfTheUndeaf.GameEvents.Listeners
     {
         private int consecutiveJumps = 1;
         private JumpEvent lastEvent;
-
-        private static ILogger logger = GlobalLogger.GetLogger(nameof(TestJumpListener));
 
         public override void ProcessEvent(GameEvent gameEvent)
         {
@@ -29,7 +25,7 @@ namespace RiseOfTheUndeaf.GameEvents.Listeners
             }
 
             if (consecutiveJumps >= 5)
-                logger.Info($"Jump combo: {consecutiveJumps} jumps.");
+                this.LogInfo("Jump combo: {consecutiveJumps} jumps.", consecutiveJumps);
 
             lastEvent = jump;
         }
