@@ -85,7 +85,7 @@ namespace RiseOfTheUndeaf.Core.Configuration
             using var configFile = VirtualFileSystem.ApplicationRoaming.OpenStream("config.ini", VirtualFileMode.OpenOrCreate, VirtualFileAccess.Write);
             using var writer = new StreamWriter(configFile);
 
-            foreach (var setting in appSettings.Settings)
+            foreach (var setting in appSettings)
             {
                 var sectionName = setting.GetType().GetCustomAttribute<ConfigurationSectionAttribute>()?.SectionName;
 
