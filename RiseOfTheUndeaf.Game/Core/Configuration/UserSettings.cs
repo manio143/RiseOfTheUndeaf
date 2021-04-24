@@ -14,5 +14,14 @@ namespace RiseOfTheUndeaf.Core.Configuration
             => appSettings.GetSettings<TSettings>() ?? new TSettings();
 
         public static LoggingConfiguration Logging { get; } = settings.Get<LoggingConfiguration>();
+
+        public static void SaveSettings()
+        {
+            var appSettings = new AppSettings(new[]
+            {
+                Logging,
+            });
+            new RoamingAppSettingsProvider().WriteAppSettings(appSettings);
+        }
     }
 }

@@ -1,3 +1,4 @@
+using RiseOfTheUndeaf.Core.Configuration;
 using RiseOfTheUndeaf.Core.Logging;
 using Stride.Core.Diagnostics;
 using Stride.Engine;
@@ -13,6 +14,7 @@ namespace RiseOfTheUndeaf
             {
                 game.InitializeLogging();
                 game.Run();
+                UserSettings.SaveSettings();
             }
         }
     }
