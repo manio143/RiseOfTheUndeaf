@@ -32,7 +32,7 @@ namespace RiseOfTheUndeaf.Core.Logging
 
             public IDisposable BeginScope<TState>(TState state)
             {
-                throw new NotSupportedException("Logging scopes are currently not supported."); // Do I want to support this? Could be useful for AsyncScript scenarios
+                return null; // No point for StrideLogger
             }
 
             public bool IsEnabled(LogLevel logLevel)

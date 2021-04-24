@@ -18,7 +18,11 @@ namespace RiseOfTheUndeaf.Core.Logging
         {
             loggerFactory = LoggerFactory.Create(builder => builder
                 .SetMinimumLevel(UserSettings.Logging.MinLogLevel)
+                .AddSeq()
                 .AddProvider(new StrideLoggerProvider()));
+
+            game.WindowCreated += (_,_) => LogExtensionsContext.InitializeContext(game);
+
             game.Services.AddService(loggerFactory);
         }
 
@@ -30,35 +34,45 @@ namespace RiseOfTheUndeaf.Core.Logging
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Debug)) logger.LogDebug(CreateEventId(typeName, memberName, sourceLineNumber), message);
+            if (logger.IsEnabled(LogLevel.Debug))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogDebug(CreateEventId(typeName, memberName, sourceLineNumber), message);
         }
 
         public static void LogDebug<T0>(this object @this, string message, T0 arg0, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Debug)) logger.LogDebug(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0);
+            if (logger.IsEnabled(LogLevel.Debug)) 
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogDebug(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0);
         }
 
         public static void LogDebug<T0, T1>(this object @this, string message, T0 arg0, T1 arg1, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Debug)) logger.LogDebug(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1);
+            if (logger.IsEnabled(LogLevel.Debug)) 
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogDebug(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1);
         }
 
         public static void LogDebug<T0, T1, T2>(this object @this, string message, T0 arg0, T1 arg1, T2 arg2, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Debug)) logger.LogDebug(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1, arg2);
+            if (logger.IsEnabled(LogLevel.Debug)) 
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogDebug(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1, arg2);
         }
 
         public static void LogDebug<T0, T1, T2, T3>(this object @this, string message, T0 arg0, T1 arg1, T2 arg2, T3 arg3, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Debug)) logger.LogDebug(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1, arg2, arg3);
+            if (logger.IsEnabled(LogLevel.Debug)) 
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogDebug(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1, arg2, arg3);
         }
         #endregion Debug
         #region Info
@@ -67,35 +81,45 @@ namespace RiseOfTheUndeaf.Core.Logging
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Information)) logger.LogInformation(CreateEventId(typeName, memberName, sourceLineNumber), message);
+            if (logger.IsEnabled(LogLevel.Information)) 
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogInformation(CreateEventId(typeName, memberName, sourceLineNumber), message);
         }
 
         public static void LogInfo<T0>(this object @this, string message, T0 arg0, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Information)) logger.LogInformation(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0);
+            if (logger.IsEnabled(LogLevel.Information))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogInformation(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0);
         }
 
         public static void LogInfo<T0, T1>(this object @this, string message, T0 arg0, T1 arg1, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Information)) logger.LogInformation(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1);
+            if (logger.IsEnabled(LogLevel.Information))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogInformation(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1);
         }
 
         public static void LogInfo<T0, T1, T2>(this object @this, string message, T0 arg0, T1 arg1, T2 arg2, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Information)) logger.LogInformation(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1, arg2);
+            if (logger.IsEnabled(LogLevel.Information))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogInformation(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1, arg2);
         }
 
         public static void LogInfo<T0, T1, T2, T3>(this object @this, string message, T0 arg0, T1 arg1, T2 arg2, T3 arg3, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Information)) logger.LogInformation(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1, arg2, arg3);
+            if (logger.IsEnabled(LogLevel.Information))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogInformation(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1, arg2, arg3);
         }
         #endregion Info
         #region Warning
@@ -104,70 +128,90 @@ namespace RiseOfTheUndeaf.Core.Logging
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Warning)) logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), message);
+            if (logger.IsEnabled(LogLevel.Warning))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), message);
         }
 
         public static void LogWarning<T0>(this object @this, string message, T0 arg0, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Warning)) logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0);
+            if (logger.IsEnabled(LogLevel.Warning))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0);
         }
 
         public static void LogWarning<T0, T1>(this object @this, string message, T0 arg0, T1 arg1, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Warning)) logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1);
+            if (logger.IsEnabled(LogLevel.Warning))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1);
         }
 
         public static void LogWarning<T0, T1, T2>(this object @this, string message, T0 arg0, T1 arg1, T2 arg2, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Warning)) logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1, arg2);
+            if (logger.IsEnabled(LogLevel.Warning))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1, arg2);
         }
 
         public static void LogWarning<T0, T1, T2, T3>(this object @this, string message, T0 arg0, T1 arg1, T2 arg2, T3 arg3, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Warning)) logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1, arg2, arg3);
+            if (logger.IsEnabled(LogLevel.Warning))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1, arg2, arg3);
         }
 
         public static void LogWarning(this object @this, Exception exception, string message, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Warning)) logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), exception, message);
+            if (logger.IsEnabled(LogLevel.Warning))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), exception, message);
         }
 
         public static void LogWarning<T0>(this object @this, Exception exception, string message, T0 arg0, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Warning)) logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), exception, message, arg0);
+            if (logger.IsEnabled(LogLevel.Warning))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), exception, message, arg0);
         }
 
         public static void LogWarning<T0, T1>(this object @this, Exception exception, string message, T0 arg0, T1 arg1, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Warning)) logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), exception, message, arg0, arg1);
+            if (logger.IsEnabled(LogLevel.Warning))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), exception, message, arg0, arg1);
         }
 
         public static void LogWarning<T0, T1, T2>(this object @this, Exception exception, string message, T0 arg0, T1 arg1, T2 arg2, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Warning)) logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), exception, message, arg0, arg1, arg2);
+            if (logger.IsEnabled(LogLevel.Warning))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), exception, message, arg0, arg1, arg2);
         }
 
         public static void LogWarning<T0, T1, T2, T3>(this object @this, Exception exception, string message, T0 arg0, T1 arg1, T2 arg2, T3 arg3, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Warning)) logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), exception, message, arg0, arg1, arg2, arg3);
+            if (logger.IsEnabled(LogLevel.Warning))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogWarning(CreateEventId(typeName, memberName, sourceLineNumber), exception, message, arg0, arg1, arg2, arg3);
         }
         #endregion Warning
         #region Error
@@ -176,35 +220,45 @@ namespace RiseOfTheUndeaf.Core.Logging
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Error)) logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), message);
+            if (logger.IsEnabled(LogLevel.Error))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), message);
         }
 
         public static void LogError<T0>(this object @this, string message, T0 arg0, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Error)) logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0);
+            if (logger.IsEnabled(LogLevel.Error))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0);
         }
 
         public static void LogError<T0, T1>(this object @this, string message, T0 arg0, T1 arg1, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Error)) logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1);
+            if (logger.IsEnabled(LogLevel.Error))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1);
         }
 
         public static void LogError<T0, T1, T2>(this object @this, string message, T0 arg0, T1 arg1, T2 arg2, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Error)) logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1, arg2);
+            if (logger.IsEnabled(LogLevel.Error))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1, arg2);
         }
 
         public static void LogError<T0, T1, T2, T3>(this object @this, string message, T0 arg0, T1 arg1, T2 arg2, T3 arg3, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Error)) logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1, arg2, arg3);
+            if (logger.IsEnabled(LogLevel.Error))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), message, arg0, arg1, arg2, arg3);
         }
 
 
@@ -212,35 +266,45 @@ namespace RiseOfTheUndeaf.Core.Logging
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Error)) logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), exception, message);
+            if (logger.IsEnabled(LogLevel.Error))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), exception, message);
         }
 
         public static void LogError<T0>(this object @this, Exception exception, string message, T0 arg0, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Error)) logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), exception, message, arg0);
+            if (logger.IsEnabled(LogLevel.Error))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), exception, message, arg0);
         }
 
         public static void LogError<T0, T1>(this object @this, Exception exception, string message, T0 arg0, T1 arg1, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Error)) logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), exception, message, arg0, arg1);
+            if (logger.IsEnabled(LogLevel.Error))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), exception, message, arg0, arg1);
         }
 
         public static void LogError<T0, T1, T2>(this object @this, Exception exception, string message, T0 arg0, T1 arg1, T2 arg2, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Error)) logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), exception, message, arg0, arg1, arg2);
+            if (logger.IsEnabled(LogLevel.Error))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), exception, message, arg0, arg1, arg2);
         }
 
         public static void LogError<T0, T1, T2, T3>(this object @this, Exception exception, string message, T0 arg0, T1 arg1, T2 arg2, T3 arg3, Separator sep = default, [CallerMemberName] string memberName = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             var typeName = @this.GetType().FullName;
             var logger = loggerFactory.CreateLogger(typeName);
-            if (logger.IsEnabled(LogLevel.Error)) logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), exception, message, arg0, arg1, arg2, arg3);
+            if (logger.IsEnabled(LogLevel.Error))
+                using (var scope = logger.BeginScope(LogContextProvider.CurrentContext))
+                    logger.LogError(CreateEventId(typeName, memberName, sourceLineNumber), exception, message, arg0, arg1, arg2, arg3);
         }
         #endregion Error
 
