@@ -88,6 +88,7 @@ Hierarchy:
         - ref!! c4992244-fec7-427d-b399-bc6d5cfbb59e
         - ref!! b5965c7e-473e-4b30-8769-41408841148d
         - ref!! 6e957bf7-10de-46cb-9eb3-1083b38a2a27
+        - ref!! 39c3e473-816e-4f42-b4e4-92c661ae58c6
     Parts:
         -   Entity:
                 Id: 003ea996-d3d5-46e1-8f7c-e934945032b4
@@ -2001,6 +2002,23 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             4eecb3c27affe3478bcc584553d59e41: ref!! 9cacd7e8-f527-4f8b-aac8-7f5f5ad854e6
+        -   Entity:
+                Id: 39c3e473-816e-4f42-b4e4-92c661ae58c6
+                Name: AudioTest
+                Components:
+                    a9be45ba686b56a4d48b42cc2b734e0f: !TransformComponent
+                        Id: ae5e004c-9b58-430c-95d2-6a7decef7246
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    e9579cc2ab41091e07f0584029038f5d: !RiseOfTheUndeaf.Audio.Components.CreateSongScript,RiseOfTheUndeaf.Game
+                        Id: e8964e9d-a34d-4ae4-9021-d8ad286e9fae
+                        WAVPath: D:\Music\BeatDetectionSamples\Piano.wav
+                        Name: Piano
+                        MinBpm: 65
+                        MaxBpm: 120
+                        BitRate: Kbps256
         -   Folder: Complex
             Entity:
                 Id: 3a338e29-3929-45de-ac03-da86f7ecd26e
