@@ -82,7 +82,7 @@ namespace RiseOfTheUndeaf.Core.Configuration
         {
             this.LogInfo("Writing AppSettings to 'roaming/config.ini'.");
 
-            using var configFile = VirtualFileSystem.ApplicationRoaming.OpenStream("config.ini", VirtualFileMode.OpenOrCreate, VirtualFileAccess.Write);
+            using var configFile = VirtualFileSystem.ApplicationRoaming.OpenStream("config.ini", VirtualFileMode.Truncate, VirtualFileAccess.Write);
             using var writer = new StreamWriter(configFile);
 
             foreach (var setting in appSettings)
