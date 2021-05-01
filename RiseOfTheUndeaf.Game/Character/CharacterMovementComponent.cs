@@ -12,7 +12,7 @@ namespace RiseOfTheUndeaf.Character
     /// </summary>
     [DataContract("CharacterMovement")]
     [Display("Character Movement")]
-    [DefaultEntityComponentProcessor(typeof(CharacterMovementProcessor))]
+    [DefaultEntityComponentProcessor(typeof(CharacterMovementProcessor), ExecutionMode = ExecutionMode.Runtime)]
     public class CharacterMovementComponent : EntityComponent, IMovementEvents
     {
         /// <summary>

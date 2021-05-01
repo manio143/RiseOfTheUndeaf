@@ -6,7 +6,7 @@ namespace RiseOfTheUndeaf.Character
 {
     [DataContract("FollowerComponent")]
     [Display("Follow")]
-    [DefaultEntityComponentProcessor(typeof(FollowerProcessor))]
+    [DefaultEntityComponentProcessor(typeof(FollowerProcessor), ExecutionMode = ExecutionMode.Runtime)]
     public class FollowerComponent : EntityComponent
     {
         /// <summary>

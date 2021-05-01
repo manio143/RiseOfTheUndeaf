@@ -7,7 +7,7 @@ namespace RiseOfTheUndeaf.Character
 {
     [DataContract("CharacterStats")]
     [Display("Character Stats")]
-    [DefaultEntityComponentProcessor(typeof(CharacterStatsProcessor))]
+    [DefaultEntityComponentProcessor(typeof(CharacterStatsProcessor), ExecutionMode = ExecutionMode.Runtime)]
     public class CharacterStatsComponent : EntityComponent, IDamageEvents
     {
         /// <summary>

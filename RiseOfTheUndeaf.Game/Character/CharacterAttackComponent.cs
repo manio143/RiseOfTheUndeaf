@@ -8,7 +8,7 @@ namespace RiseOfTheUndeaf.Character
 {
     [Display("Character Attack")]
     [DataContract]
-    [DefaultEntityComponentProcessor(typeof(CharacterAttackProcessor))]
+    [DefaultEntityComponentProcessor(typeof(CharacterAttackProcessor), ExecutionMode = ExecutionMode.Runtime)]
     public class CharacterAttackComponent : EntityComponent, IAttackEvents
     {
         internal enum AttackState

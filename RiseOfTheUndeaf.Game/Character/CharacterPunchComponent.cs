@@ -7,7 +7,7 @@ namespace RiseOfTheUndeaf.Character
 {
     [DataContract("CharacterPunch")]
     [Display("Character Punch")]
-    [DefaultEntityComponentProcessor(typeof(CharacterPunchProcessor))]
+    [DefaultEntityComponentProcessor(typeof(CharacterPunchProcessor), ExecutionMode = ExecutionMode.Runtime)]
     public class CharacterPunchComponent : EntityComponent, IMeleeAttackEvents
     {
         public PhysicsComponent InteractionSource { get; set; }
